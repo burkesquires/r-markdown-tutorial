@@ -375,29 +375,28 @@ Body Options
 add R code to the document,
 *along with its output*.
 
-
-
 Go ahead
---------
 
 Just add a *chunk* of R code, wrapped in
 
 ````
-`r ''````{r}
+`r ''`
+```{r}
 1 + 1
 ```
 ````
 
+# Code Chunks: Adding in R
+
 **Try it!**
 
-----------
-
-````
 Powers of two?
-`r ''````{r}
+````
+`r ''`
+```{r}
 2^(0:10)
 ```
-`````
+````
 
 . . .
 
@@ -407,31 +406,37 @@ Powers of two?
 2^(0:10)
 ```
 
-----------
+# Code Chunks: Adding in R
 
-````
 How about this?
+````
 $$ \lim_{n \to \infty} 4 \sum_{k=1}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
-
-`r ''````{r}
-cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
-```
 ````
 
 . . .
 
-How about this?
 $$ \lim_{n \to \infty} 4 \sum_{k=0}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
 
+# Code Chunks: Adding in R
+
+````
+`r ''`
+```{r}
+cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+```
+````
+
+. . .
 
 ```{r}
 cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 ```
 
---------
+# Code Chunks: Adding in R
 
 ````
-`r ''````{r}
+`r ''`
+```{r}
 plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
@@ -447,56 +452,27 @@ abline(h=pi, col='red')
 
 # Exercise
 
-Make a short Rmarkdown document that
+???
 
-- checks that $$1 + 2 + \cdots + n = n(n+1)/2$$
-  for every $n$ between 1 and 100
+# Code Chunks: Adding in R
 
-- shows these on a plot
-
-- explains what's being computed
-
-*Useful:* `x = cumsum(1:100)` and `plot(x)` and `lines(y)`.
-
-
-
-Body
-====
-
-The main Markdown and code content
-Code chunks are offset by ``` before/after
-
-````{.R}
-data(iris)
-dir.create("examples")
-write.table(iris,file="examples/iris.tsv",sep="\t")
-````
-
-----------
-
-1.  Read in the data.
-
-2.  Describe the dataset: number of observations, variables, etcetera.
-
-    - inline `R` code (`` ``r "r nrow(iris)"`` ``)
-
-3.  Make a table of the number of observations for each species.
-
-    * `pander()`
-    * or `results="asis"` and `print.xtable(xtable( ),type='html')`
-
-4.  Plot the flower dimensions against each other,
-
-    * using `pairs()`, and colored by species.
-
-
-- You can quickly insert chunks like these into your file with
-
-the keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I)
-the Add Chunk  command in the editor toolbar
-or by typing the chunk delimiters ```{r} and ```.
+- You can quickly insert chunks like these into your file with 
+  - the keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I)
+  - the Add Chunk  command in the editor toolbar
+  - or by typing the chunk delimiters ```{r} and ```.
 
 When you render your .Rmd file, R Markdown will run each code chunk and embed the results beneath the code chunk in your final report.
+
+# Code Chunks: Adding in R
+
+- Code chunks can be displayed or not using options
+
+````
+`r ''`
+```{r echo=FALSE}
+2^(0:10)
+```
+````
 
 - echo (default=TRUE): display code in the document
 - eval (default=TRUE): run the code in the chunk
@@ -546,6 +522,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 ???
 
 ### Lets list some parts of the cell!
+
 ```{python python-chunk}
 parts = ['nucleus','ribosome','plasma membrane','mitochondria','endoplasmic reticulum']
 for p in parts:
@@ -635,7 +612,7 @@ Try to make the nicest looking table you can!
 
 - R Notebook (demo)
 
-- we will build a notebook a little later
+- We will build a notebook a little later
 
 # Dashboards
 

@@ -515,18 +515,33 @@ Setting width and height are optional.</p>
 <div id="code-chunks-adding-in-r" class="slide section level1">
 <h1>Code Chunks: Adding in R</h1>
 <p><strong>Goal:</strong> add R code to the document, <em>along with its output</em>.</p>
-<h2 id="go-ahead">Go ahead</h2>
+<p>Go ahead</p>
 <p>Just add a <em>chunk</em> of R code, wrapped in</p>
-<pre><code>```{r}
+<pre><code>
+
+```r
 1 + 1
+```
+
+```
+## [1] 2
 ```</code></pre>
+</div>
+<div id="code-chunks-adding-in-r-1" class="slide section level1">
+<h1>Code Chunks: Adding in R</h1>
 <p><strong>Try it!</strong></p>
 </div>
 <div class="slide section level1">
 
-<pre><code>Powers of two?
-```{r}
+<p>Powers of two?</p>
+<pre><code>
+
+```r
 2^(0:10)
+```
+
+```
+##  [1]    1    2    4    8   16   32   64  128  256  512 1024
 ```</code></pre>
 <div class="incremental">
 <p>Powers of two?</p>
@@ -536,14 +551,28 @@ Setting width and height are optional.</p>
 </div>
 <div class="slide section level1">
 
-<pre><code>How about this?
-$$ \lim_{n \to \infty} 4 \sum_{k=1}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
+<p>How about this?</p>
+<pre><code>$$ \lim_{n \to \infty} 4 \sum_{k=1}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
 
-```{r}
+. . .
+
+How about this?
+$$ \lim_{n \to \infty} 4 \sum_{k=0}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
+
+--------
+
+
+
+```r
 cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+```
+
+```
+##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738 3.017072
+##  [9] 3.252366 3.041840 3.232316 3.058403 3.218403 3.070255 3.208186 3.079153
+## [17] 3.200366 3.086080 3.194188 3.091624 3.189185
 ```</code></pre>
 <div class="incremental">
-<p>How about this? <span class="math display">\[ \lim_{n \to \infty} 4 \sum_{k=0}^n \frac{ (-1)^n }{ 2n+1 } = \pi , \]</span></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>( <span class="dv">4</span> <span class="sc">*</span> (<span class="sc">-</span><span class="dv">1</span>)<span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>)<span class="sc">+</span><span class="dv">1</span>) )</span></code></pre></div>
 <pre><code>##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738 3.017072
 ##  [9] 3.252366 3.041840 3.232316 3.058403 3.218403 3.070255 3.208186 3.079153
@@ -572,36 +601,26 @@ abline(h=pi, col=&#39;red&#39;)
 </ul>
 <p><em>Useful:</em> <code>x = cumsum(1:100)</code> and <code>plot(x)</code> and <code>lines(y)</code>.</p>
 </div>
-<div id="body" class="slide section level1">
-<h1>Body</h1>
-<p>The main Markdown and code content Code chunks are offset by ``` before/after</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;examples&quot;</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(iris,<span class="at">file=</span><span class="st">&quot;examples/iris.tsv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-</div>
-<div class="slide section level1">
-
-<ol style="list-style-type: decimal">
-<li><p>Read in the data.</p></li>
-<li><p>Describe the dataset: number of observations, variables, etcetera.</p>
+<div id="code-chunks" class="slide section level1">
+<h1>Code Chunks</h1>
 <ul>
-<li>inline <code>R</code> code (<code>`r nrow(iris)`</code>)</li>
+<li>You can quickly insert chunks like these into your file with
+<ul>
+<li>the keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I)</li>
+<li>the Add Chunk command in the editor toolbar</li>
+<li>or by typing the chunk delimiters <code>{r} and</code>.</li>
 </ul></li>
-<li><p>Make a table of the number of observations for each species.</p>
-<ul>
-<li><code>pander()</code></li>
-<li>or <code>results=&quot;asis&quot;</code> and <code>print.xtable(xtable( ),type=&#39;html&#39;)</code></li>
-</ul></li>
-<li><p>Plot the flower dimensions against each other,</p>
-<ul>
-<li>using <code>pairs()</code>, and colored by species.</li>
-</ul></li>
-</ol>
-<ul>
-<li>You can quickly insert chunks like these into your file with</li>
 </ul>
-<p>the keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I) the Add Chunk command in the editor toolbar or by typing the chunk delimiters <code>{r} and</code>.</p>
 <p>When you render your .Rmd file, R Markdown will run each code chunk and embed the results beneath the code chunk in your final report.</p>
+</div>
+<div id="code-chunks-1" class="slide section level1">
+<h1>Code Chunks</h1>
+<ul>
+<li>Code chunks can be displayed or not using options</li>
+</ul>
+<pre><code>```{r echo=FALSE}
+2^(0:10)
+```</code></pre>
 <ul>
 <li>echo (default=TRUE): display code in the document</li>
 <li>eval (default=TRUE): run the code in the chunk</li>
