@@ -1,5 +1,5 @@
 ---
-title: "Writing reproducible, re-usable reports, with R + markdown"
+title: "An Introduction to R + markdown"
 author: "R. Burke Squires"
 date: "September 7, 2021"
 output:
@@ -76,7 +76,7 @@ Markdown is an informal specification, in 2016 groups started to make formal var
 
 # Another Programming Language???
 
-![Markdown is a programming language?](figures/fear.jpg)
+![Markdown is a programming language?](images/fear.jpg)
 
 
 
@@ -236,10 +236,10 @@ Images are **the same** but with a `!` in front. \
 Setting width and height are optional.
 
 ```{.markdown}
-![oh, internet](figures/cat-pandoc.jpg){width=300px height=300px}
+![oh, internet](images/cat-pandoc.jpg){width=300px height=300px}
 ```
 
-![oh, internet](figures/cat-pandoc.jpg){width=300px height=300px}
+![oh, internet](images/cat-pandoc.jpg){width=300px height=300px}
 
 # Questions about Markdown?
 
@@ -317,7 +317,7 @@ Setting width and height are optional.
 
 #	How Does R Markdown Works?
 
-![How it works](figures/rmarkdownflow.png){fig.align=center}
+![How it works](images/rmarkdownflow.png){fig.align=center}
 
 - When you run render, R Markdown feeds the .Rmd file to `knitr`, which executes all of the code chunks and creates a new markdown (.md) document which includes the code and its output.
 
@@ -348,8 +348,7 @@ Notice that the file contains three types of content:
 
 # Anatomy of an R Markdown File
 
-Header (YAML)
-------
+**Header (YAML)**
 - Three dashes (to open)
 - Title
 - Author
@@ -357,8 +356,7 @@ Header (YAML)
 - Output format(s)(Used for compiling - multiple output formats can be written here!)
 - Three dashes (to close)
 
-Body Options
-------------
+**Body Options**
 - Code Chunks
 - Inline Code
 - Parameters
@@ -518,7 +516,9 @@ https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 
 ???
 
-### Lets list some parts of the cell!
+# Code Languages
+
+**Lets list some parts of the cell!**
 
 ```{python python-chunk}
 parts = ['nucleus','ribosome','plasma membrane','mitochondria','endoplasmic reticulum']
@@ -526,7 +526,8 @@ for p in parts:
   print(p)
 ```
 
-### Lets list some types of bacteria by genus!
+**Lets list some types of bacteria by genus!**
+
 ```{ruby ruby-chunk}
 bacs = ['Micrococcus','Staphylococcus','Bacillus','Pseudomona']
 bacs.each {|b| puts b}
@@ -537,7 +538,7 @@ bacs.each {|b| puts b}
 
 Click [here](https://rstudio.cloud/project/181942) to open in RStudio.cloud
 
-![parameters](figures/params-1-hawaii.png){ width=75% height=75% }
+![parameters](images/params-1-hawaii.png){ width=75% height=75% }
 
 # Parameters
 
@@ -555,10 +556,10 @@ Add a params argument to render to create a report that uses a new set of parame
 
 # Tables
 
-![Tables](figures/tables-1-kable.png){ width=75% height=75% }
+![Tables](images/tables-1-kable.png){ width=75% height=75% }
 
 
-# Challenge / Exercise
+# Exercise / Challenge
 
 The *NIEHS_NTP_SUBSTANCES.csv* data set from the National Toxicology Program has a list of known toxic substances that are studied at NIEHS.
 
@@ -572,12 +573,15 @@ Try to make the nicest looking table you can!
 
 # Analyze
 
+If we think there is time we can add some additional code examples here:
 - R
 - Python
 - SQL
 
 
 # Sharing
+
+Sharing can take many (and multiple) forms in RMarkdown
 -	Documents
 - Presentations
 - Notebooks
@@ -587,6 +591,8 @@ Try to make the nicest looking table you can!
 - Interactive Documents
 
 # Documents
+
+Document options include:
 - html_notebook - Interactive R Notebooks
 - html_document - HTML document w/ Bootstrap CSS
 - pdf_document - PDF document (via LaTeX template)
@@ -597,6 +603,8 @@ Try to make the nicest looking table you can!
 
 
 # Presentations (slides)
+
+Presentation options include:
 - ioslides_presentation - HTML presentation with ioslides
 - revealjs::revealjs_presentation - HTML presentation with reveal.js
 - slidy_presentation - HTML presentation with W3C Slidy
@@ -609,9 +617,9 @@ Try to make the nicest looking table you can!
 
 - R Notebook (demo)
 
-- We will build a notebook a little later
-
 # Dashboards
+
+You can create a dashboard in RMarkdown
 
 - flexdashbaord (demo)
 
