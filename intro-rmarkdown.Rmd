@@ -4,7 +4,8 @@ author: "R. Burke Squires"
 date: "September 7, 2021"
 output:
   slidy_presentation: default
-  #ioslides_presentation: default
+  # ioslides_presentation:
+  #  css: shiny-slides.css
   #revealjs::revealjs_presentation
     #theme: default
     #highlight: pygments
@@ -55,7 +56,7 @@ output:
 
 . . .
 
-- More recently, we’ve seen a resurgence of this with IPython, now Jupyter notebooks (which support many languages).
+- More recently, we’ve seen a resurgence of this with ~IPython~, now ~Jupyter~ notebooks (which support many languages).
 
 . . .
 
@@ -63,8 +64,13 @@ output:
 
 # What is Markdown?
 
-- Markdown is plain text 
+- Markdown is plain text
+
+. . .
+
 - Where formatting is indicated but not immediately shown/rendered.
+
+. . .
 
 - For example, this in markdown:
 ```{.markdown}
@@ -81,15 +87,23 @@ becomes this when rendered:
 
 - R Markdown provides an authoring framework for data science
 
+. . .
+
 - You can use a single R Markdown file to both
 
   - Save and execute code
 
   - Generate high quality reports that can be shared
 
+. . .
+
 - R Markdown documents
   - Fully reproducible 
   - Support dozens of static and dynamic output formats
+
+# What is possible with RMarkdown
+
+Click the link to see the R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
 
 # R script vs Notebook vs Markdown
 
@@ -105,6 +119,16 @@ becomes this when rendered:
 R notebook vs markdown
   - Same file format - the difference is how YOU work with it.
 
+# Difference between RMarkdown and RNotebooks
+
+- R Markdown documents are ‘knitted’, while R Notebooks are ‘previewed’.
+- Although the notebook preview looks similar to the knitted markdown document, the notebook preview does not execute any code chunks, but only shows you a rendered copy of the Markdown output of your document along with the most recent chunk output. The preview is also generated automatically whenever the notebook is saved. This would be especially useful if we have the preview showing in the Viewer window next to the console. This means that in R Notebooks, we are able to visually assess the output as we develop the document without having to knit the whole document again.
+- For example, with the following code chunk example (from the RMarkdown_Tutorial.R practice script), we are creating a table of species richness for each taxonomic group.
+- ```{r} richness <- edidiv %>% group_by(taxonGroup) %>% summarise(Species_richness = n_distinct(taxonName)) ``` 
+- To bring up the table output, we can add richness, pander(richness), kable(richness) to the end of that code chunk. If we had initially forgotten to add in either one of those functions, the table would not have been produced in both the knitted markdown document and the notebook preview. Imagine that we are now editing the R Markdown document / R Notebook document to include this function to bring up the table in the outputted document.
+- For RMarkdown: we would type in pander(richness), run that specific code chunk, and then have to click the Knit button in the taskbar to knit the whole document again.
+- For R Notebooks, we type in pander(richness), run that specific code chunk, and save the document, and the preview in the Viewer window would be updated on its own - there is no need to click the Preview button in the taskbar and run the code for the whole document.
+- Note: R Markdown Notebooks are only available in RStudio 1.0 or higher.
 
 
 #	Installation
@@ -124,10 +148,20 @@ R notebook vs markdown
 
 - May sound complicated, but R Markdown makes it simple...a single render function.
 
+# Workflow
+1. Open a **new .Rmd file** in the RStudio IDE by going to ~File > New File > R Markdown~
+2. **Embed code** in chunks. Run code by line, by chunk, or all at once.
+3. **Write text** and add tables, figures, images, and citations. Format with Markdown syntax or the RStudio Visual Markdown Editor.
+4. **Set output format(s) and options** in the YAML header. Customize themes or add parameters to execute or add interactivity with Shiny.
+5. **Save and render** the whole document. Knit periodically to preview your work as you write. 
+6. **Share your work!**
+
 
 # R Markdown Components
 
 Open RStudio -> File -> New file -> Rmarkdown -> Click OK
+
+. . .
 
 What do you see?
 . . .
@@ -148,19 +182,21 @@ What do you see?
 
 . . .
 
+- You can list multiple outputs
+
 [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 
-# Markdown Basics
+# R Markdown Basics
 - Code Chunks
 - Inline Code
 - Parameters
 - Tables
+- Markdown
 
+# Code Chunks
 
-Code Chunks
-=====
-You can quickly insert chunks like these into your file with
+- You can quickly insert chunks like these into your file with
 
 the keyboard shortcut Ctrl + Alt + I (OS X: Cmd + Option + I)
 the Add Chunk  command in the editor toolbar
@@ -177,9 +213,9 @@ When you render your .Rmd file, R Markdown will run each code chunk and embed th
 
 See more here: https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 
-Inline Code
-=====
-Code results can be inserted directly into the text of a .Rmd file by enclosing the code with `r `. The file below uses `r ` twice to call colorFunc, which returns “heat.colors.”
+# Inline Code
+
+- Code results can be inserted directly into the text of a .Rmd file by enclosing the code with `r `. The file below uses `r ` twice to call colorFunc, which returns “heat.colors.”
 
 ```{r include=TRUE}
 colorfunc <- "heat.colors"
@@ -188,29 +224,47 @@ colorfunc <- "heat.colors"
 
 Base R comes with many functions for generating colors. The code below demonstrates the `r colorfunc` function.
 
-Code Languages
-=====
-`knitr` can execute code in many languages besides R. Some of the available language engines include:
-- Python
-- SQL
-- Bash
-- Rcpp
-- Stan
-- JavaScript
-- CSS
+# Code Languages
 
-To process a code chunk using an alternate language engine, replace the r at the start of your chunk declaration with the name of the language:
+- `knitr` can execute code in many languages besides R. 
 
-https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
+- Some of the available language engines include:
+  - Python
+  - SQL
+  - Bash
+  - Rcpp
+  - JavaScript
+  - CSS
+
+- To process a code chunk using an alternate language engine, replace the r at the start of your chunk declaration with the name of the language
 
 ```{bash}
 pwd
 ```
-Note that chunk options like echo and results are all valid when using a language engine like python.
+- Note that chunk options like echo and results are all valid when using a language engine like python.
+
+- Note, *except for python*, these sessions are closed at the end of each code chunk so variables do not persist throughout the document
+
+https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
+
+# Challenge
+
+### Lets list some parts of the cell!
+```{python python-chunk}
+parts = ['nucleus','ribosome','plasma membrane','mitochondria','endoplasmic reticulum']
+for p in parts:
+  print(p)
+```
+
+### Lets list some types of bacteria by genus!
+```{ruby ruby-chunk}
+bacs = ['Micrococcus','Staphylococcus','Bacillus','Pseudomona']
+bacs.each {|b| puts b}
+```
 
 
-Parameters
-=====
+# Parameters
+
 Click [here](https://rstudio.cloud/project/181942) to open in RStudio.cloud
 
 ![parameters](figures/params-1-hawaii.png){ width=75% height=75% }
@@ -236,62 +290,16 @@ Add a params argument to render to create a report that uses a new set of parame
 
 # Challenge / Exercise
 
+The *NIEHS_NTP_SUBSTANCES.csv* data set from the National Toxicology Program has a list of known toxic substances that are studied at NIEHS.
 
-# Analyze
-Language: R, Python, SQL
+*Challenge*: Your boss needs to set their budget next year to buy lab equipment and make supplier contracts. They ask you to create an HTML table with the following columns to include in their report: Substance Category, Substance Name, Analysis Method, and Supplier.
 
+Try to make the nicest looking table you can!
 
+# Writing Text
 
-# Sharing
--	Documents
-- Presentations
-- Notebooks
--	Slide Presentations
-- Dashboards
-- Websites
-- Interactive Documents
+*So What is “Markdown?”*
 
-# Documents
-- html_notebook - Interactive R Notebooks
-- html_document - HTML document w/ Bootstrap CSS
-- pdf_document - PDF document (via LaTeX template)
-- word_document - Microsoft Word document (docx)
-- odt_document - OpenDocument Text document
-- rtf_document - Rich Text Format document
-- md_document - Markdown document (various flavors)
-
-
-# Presentations (slides)
-- ioslides_presentation - HTML presentation with ioslides
-- revealjs::revealjs_presentation - HTML presentation with reveal.js
-- slidy_presentation - HTML presentation with W3C Slidy
-- beamer_presentation - PDF presentation with LaTeX Beamer
-- powerpoint_presentation: PowerPoint presentation
-
-# Notebooks
-
-
-
-# Dashboards
-
-
-# Websites
-
-
-# Interactive Documents
-
-
-
-# Reproduce
-
-Learn how to publish and schedule reports
-
-
-
-
-
-# So What is “Markdown?”
-----------------------
 Markdown is a programming language to enable basic text files to be easily exported to (X)HTML
 
 Created in 2004 by John Gruber in collaboration with the late Aaron Swartz
@@ -300,10 +308,10 @@ Emphasis is placed on **readability** - the **.md** or **.markdown** files can b
 
 Markdown is an informal specification, in 2016 groups started to make formal variants: MultiMarkdown, GitHub Flavored Markdown (GFM), **Pandoc**, CommonMark, etc.
 
-Another Programming Language???
-=============================
+# Another Programming Language???
 
 ![Another programming language?](figures/fear.jpg)
+
 
 
 RELAX!
@@ -486,9 +494,71 @@ Setting width and height are optional.
 
 ![oh, internet](figures/cat-pandoc.jpg){width=300px height=300px}
 
+# Lunch
 
-Anatomy of an R Markdown File
-=============================
+
+# Analyze
+
+- R
+- Python
+- SQL
+
+
+
+# Sharing
+-	Documents
+- Presentations
+- Notebooks
+-	Slide Presentations
+- Dashboards
+- Websites
+- Interactive Documents
+
+# Documents
+- html_notebook - Interactive R Notebooks
+- html_document - HTML document w/ Bootstrap CSS
+- pdf_document - PDF document (via LaTeX template)
+- word_document - Microsoft Word document (docx)
+- odt_document - OpenDocument Text document
+- rtf_document - Rich Text Format document
+- md_document - Markdown document (various flavors)
+
+
+# Presentations (slides)
+- ioslides_presentation - HTML presentation with ioslides
+- revealjs::revealjs_presentation - HTML presentation with reveal.js
+- slidy_presentation - HTML presentation with W3C Slidy
+- beamer_presentation - PDF presentation with LaTeX Beamer
+- powerpoint_presentation: PowerPoint presentation
+
+# Notebooks
+
+- Rmarkdown enables you to build an analysis notebook called an R notebook
+
+- we will build a notebook a little later
+
+# Dashboards
+
+
+# Interactive Presentation
+
+- RShiny
+
+
+# Practice
+
+We will build the following:
+
+- html document
+- slides
+- R notebook
+- RShiny app
+
+
+
+
+
+# Anatomy of an R Markdown File
 
 Notice that the file contains three types of content:
 
@@ -516,309 +586,6 @@ Code chunks are offset by ``` before/after
 
 
 
-Gotchas
--------
-
-
-1.  many things need to begin with an empty line
-1.  carriage returns don't (usually) mean anything
-1.  but indentations do (*by at least four spaces*)
-
-
-. . .
-
-
-For more info see [the documentation](http://pandoc.org/README.html#the-four-space-rule).
-
-
-
-Metadata
---------
-
-At the top of your document, add 
-```{.yaml}
----
-title: YOUR TITLE HERE
-author: YOUR NAME HERE
-date: August 23, 2017
----
-```
-
-... the [YAML](http://yaml.org/) metadata, \
-delimited by **exactly three** dashes.
-
-
------------------
-
-**Note:** Besides setting the title,
-you can control the **output** in
-[many](http://tex.stackexchange.com/questions/139139/adding-headers-and-footers-using-pandoc/139205#139205) 
-[ways](http://rmarkdown.rstudio.com/html_document_format.html#pandoc-arguments) 
-here.
-
-*For example*: add
-
-```{.yaml}
-output_format : pdf_document
-```
-
-and render with `rmarkdown::render("notes.md")`.
-
-. . .
-
-**or even:**
-
-
-```{.yaml}
-output_format : word_document
-```
-
-
-
-Under the hood
---------------
-
-[`pandoc`](http://pandoc.org/README.html)
-
-```{.sh}
-pandoc --help
-```
-
-![jgm](figures/jgm.png){width=567px height=339px}
-
-
-
-
-Adding in R
-===========
-
-
------------
-
-**Goal:**
-add R code to the document,
-*along with its output*.
-
-. . .
-
-![knitr](figures/knitr-screenshot.png)
-
-
-Go ahead
---------
-
-Just add a *chunk* of R code, wrapped in
-
-`````{.Rmd}
- ```{r}
- # PUT ARBITRARY R CODE HERE
- ```
-`````
-
-. . .
-
-**Try it!**
-
-----------
-
-`````{.Rmd}
-Powers of two?
-
- ```{r}
- 2^(0:10)
- ```
-`````
-
-. . .
-
-Powers of two?
-
-```{r}
-2^(0:10)
-```
-
-----------
-
-`````{.Rmd}
-How about this?
-$$ \lim_{n \to \infty} 4 \sum_{k=1}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
-
- ```{r}
- cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
- ```
-`````
-
-. . .
-
-How about this?
-$$ \lim_{n \to \infty} 4 \sum_{k=0}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
-
-
-```{r}
-cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
-```
-
---------
-
-`````{.Rmd}
- ```{r}
- plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
- abline(h=pi, col='red')
- ```
-`````
-
-. . .
-
-
-```{r, fig.height=3.5}
-plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
-abline(h=pi, col='red')
-```
-
-Exercise
---------
-
-Make a short Rmarkdown document
-that
-
-- checks that $$1 + 2 + \cdots + n = n(n+1)/2$$
-  for every $n$ between 1 and 100
-
-- shows these on a plot
-
-- explains what's being computed
-
-*Useful:* `x = cumsum(1:100)` and `plot(x)` and `lines(y)`.
-
-
-
-What's going on
----------------
-
-1.  `knitr` uses a *regular expression* to find code chunks
-
-    -  pulls these out, 
-    -  evaluates them one at a time
-    -  and inserts "the results" back in
-
-2.  `pandoc` renders the resulting markdown file
-
-    -   with various choices of styling
-
-
-Chunk options
--------------
-
-Name each chunk,
-and set [options](http://yihui.name/knitr/options/)
-for [what gets printed](http://yihui.name/knitr/demo/output/)
-
-`````{.Rmd}
- ```{r my_chunk_name, fig.height=4, echo=FALSE}
-`````
-
-
-`echo=(TRUE|FALSE)` 
-
-: include source code in the output?
-
-`results="(markup|asis)"` 
-
-: style the output or not?
-
-`include=(FALSE|TRUE)` 
-
-: include anything in the output?
-
-
--------------
-
-Set document defaults up top:
-
-```````{.Rmd}
- ```{r, include=FALSE}
- fig.dim <- 5
- library(knitr)
- opts_chunk$set(
-        fig.height=fig.dim,
-        fig.width=2*fig.dim,
-        fig.align='center'
-    )
- ```
-```````
-
-
-Tables
-------
-
-One option: use `pander`.
-
-```````{.Rmd}
- ```{r}
- library(pander)
- bases <- table( sample( c("A","C","G","T"), 300, replace=TRUE ) )
- pander(t(bases))
- ```
-```````
-
-*note:* the transpose `t( )`
-
-```{r}
- library(pander)
- bases <- table( sample( c("A","C","G","T"), 300, replace=TRUE ) )
- pander(t(bases))
-```
-
-
-Inline code
------------
-
-`````{.Rmd}
-You can 
-``r "r"` paste(letters[c(9,14,19,5,18,20)],collapse='')` 
-code anywhere.
-`````
-
-You can 
-`r paste(letters[c(9,14,19,5,18,20)],collapse='')` 
-code anywhere.
-
-
---------------
-
-Even in the YAML header.
-
-Go change yours!
-
-    ---
-    title: "My notes"
-    author: "Peter Ralph"
-    date: "``r "r"` date()`"
-    ---
-
-
-Online example
-==============
-
---------------
-
-**Goal:** 
-Write a function that will generate all sequences of `A`/`C`/`G`/`T` of length $n$
-for which no two adjacent letters are the same.
-
-. . .
-
-Here is a [pre-written solution](examples/sequences.html).
-
-
-Your turn
----------
-
-Download the 
-[iris dataset](https://raw.githubusercontent.com/petrelharp/r-markdown-tutorial/master/examples/iris.tsv) 
-to a new directory.
-
-or just do
 
 ````{.R}
 data(iris)
@@ -845,140 +612,6 @@ write.table(iris,file="examples/iris.tsv",sep="\t")
 
 
 
-Templated reports
-=================
-
------------------
-
-Set up some fake data:
-each has 50 observations of two quantitative variables (`age` and `height`)
-and a categorical variable (`type`):
-
-```{r make_data, warning=FALSE}
-dir.create("examples/thedata")
-owd <- setwd("examples/thedata")
-for (samp in LETTERS[1:8]) {
-    dir.create(samp)
-    xy <- data.frame( 
-        age=exp(rnorm(50)),
-        type=sample(letters[1:3],50,replace=TRUE)
-    )
-    xy$height <- 5 + runif(1)*xy$age + 3*runif(1)*as.numeric(xy$type) + rnorm(50)
-    write.table(xy,file=paste0(samp,"/data.tsv"))
-}
-setwd(owd)
-```
-
-------------------
-
-We now have 10 datasets,
-each in a file like [`A/data.tsv`](examples/thedata/A/data.tsv).
-Here's what one looks like:
-```{r show_data}
-xy
-```
-
-------------------
-
-We would like to *visualize* each, 
-like this:
-
-# ```{r plot_one_data, echo=FALSE}
-# xy <- data.frame(
-#  age=exp(rnorm(50)),
-#  type=sample(letters[1:3],50,replace=TRUE)
-#  )
-# xy$height <- 5 + runif(1)*xy$age + 3*runif(1)*as.numeric(xy$type) + rnorm(50)/3
-# with(xy, plot( height ~ age, col=type ) )
-# legend( "topleft", pch=1, legend=levels(xy$type), col=1:nlevels(xy$type) )
-# ```
-
-
----------------------
-
-**The template:** `examples/simple-template.Rmd`
-
-``````{.Rmd}
- ---
- title: "Visualization for ``r "r"` getwd()`"
- date: "``r "r"` date()`"
- ---
-
-# ```{r setup, echo=FALSE}
-# input.file <- "data.tsv"
-# xy <- read.table(input.file)
-# ```
-
- The file ``r "r"` normalizePath(input.file)`
- has ``r "r"` nrow(xy)` observations:
-
-# ```{r}
-# plot( height ~ age, col=type, data=xy )
-# legend( "topleft", pch=1, col=1:nlevels(xy$type) )
-#w ```
-``````
-
-**Input:** this looks for the file `data.tsv` in the current directory.
-
------------------------
-
-**Render it:**
-
-*Option 1:* copy the template into each of the ten directories, and render them there.
-
-. . .
-
-*Option 2:* use my `templater` package.
-
-
-```{r, eval=FALSE}
-library(devtools)
-install_github("petrelharp/templater")
-library(templater)
-dir.names <- file.path("examples/thedata", LETTERS[1:8])
-for (input.dir in dir.names) {
-    output.file <- file.path(input.dir, "visualization.html")
-    render_template("examples/simple-template.Rmd", output=output.file, 
-                    change.rootdir=TRUE, quiet=TRUE)
-}
-```
-
-
--------------------------
-
-**Look at them:**
-
-#`````{.Rmd}
-# ```{r make_links1, results="asis"}
-# output.files <- file.path("examples/thedata", LETTERS[1:8], "visualization.html")
-# links <- paste("[",dir.names,"](",output.files,")",sep='')
-# cat( paste("- ", links, "\n"), "\n" )
-# ```
-`````
-
-```{r make_links, results="asis", echo=FALSE}
-dir.names <- file.path("examples/thedata", LETTERS[1:8])
-output.files <- file.path("examples/thedata", LETTERS[1:8], "visualization.html")
-links <- paste("[",dir.names,"](",output.files,")",sep='')
-cat( paste("- ", links, "\n"), "\n" )
-```
-
-
-Another exercise
-----------------
-
-**Goal:**
-Compare different $k$ with $k$-means on the `iris` dataset.
-
-1.  Make subdirectories, called `iris/k`, for $1 \le k \le 5$,
-2.  and in each runs `kmeans` with the appropriate `k`.
-
-Example:
-```{r eval=FALSE}
-data(iris)
-km <- kmeans(iris[,1:4], centers=3)
-pairs(iris, col=km$cluster)
-```
 
 Sources
 =======
