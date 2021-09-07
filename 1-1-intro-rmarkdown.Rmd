@@ -282,6 +282,8 @@ Setting width and height are optional.
 
 - Click the link to see the R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
 
+- I suggest you download (and print) the [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+
 # R Script vs Notebook vs Markdown
 
 - R script
@@ -652,6 +654,10 @@ This afternoon we will build the following:
 
 # Resources
 
+*Cheatsheets*
+- Look in the cheatsheets folder
+  - [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+  
 *Books*
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 - [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
