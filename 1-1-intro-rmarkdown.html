@@ -501,7 +501,7 @@ Setting width and height are optional.</p>
 </div>
 <div id="anatomy-of-an-r-markdown-file-1" class="slide section level1">
 <h1>Anatomy of an R Markdown File</h1>
-<h2 id="header-yaml">Header (YAML)</h2>
+<p><strong>Header (YAML)</strong></p>
 <ul>
 <li>Three dashes (to open)</li>
 <li>Title</li>
@@ -510,7 +510,7 @@ Setting width and height are optional.</p>
 <li>Output format(s)(Used for compiling - multiple output formats can be written here!)</li>
 <li>Three dashes (to close)</li>
 </ul>
-<h2 id="body-options">Body Options</h2>
+<p><strong>Body Options</strong></p>
 <ul>
 <li>Code Chunks</li>
 <li>Inline Code</li>
@@ -668,7 +668,10 @@ abline(h=pi, col=&#39;red&#39;)
 <div id="challenge" class="slide section level1">
 <h1>Challenge</h1>
 <p>???</p>
-<h3 id="lets-list-some-parts-of-the-cell">Lets list some parts of the cell!</h3>
+</div>
+<div id="code-languages-1" class="slide section level1">
+<h1>Code Languages</h1>
+<p><strong>Lets list some parts of the cell!</strong></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>parts <span class="op">=</span> [<span class="st">&#39;nucleus&#39;</span>,<span class="st">&#39;ribosome&#39;</span>,<span class="st">&#39;plasma membrane&#39;</span>,<span class="st">&#39;mitochondria&#39;</span>,<span class="st">&#39;endoplasmic reticulum&#39;</span>]</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> parts:</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(p)</span></code></pre></div>
@@ -677,7 +680,7 @@ abline(h=pi, col=&#39;red&#39;)
 ## plasma membrane
 ## mitochondria
 ## endoplasmic reticulum</code></pre>
-<h3 id="lets-list-some-types-of-bacteria-by-genus">Lets list some types of bacteria by genus!</h3>
+<p><strong>Lets list some types of bacteria by genus!</strong></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>bacs <span class="kw">=</span> <span class="kw">[</span><span class="vs">&#39;Micrococcus&#39;</span>,<span class="vs">&#39;Staphylococcus&#39;</span>,<span class="vs">&#39;Bacillus&#39;</span>,<span class="vs">&#39;Pseudomona&#39;</span><span class="kw">]</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>bacs<span class="at">.each</span> <span class="kw">{|</span>b<span class="kw">|</span> <span class="fu">puts</span> b<span class="kw">}</span></span></code></pre></div>
 <pre><code>## Micrococcus
@@ -707,8 +710,8 @@ abline(h=pi, col=&#39;red&#39;)
 <p class="caption">Tables</p>
 </div>
 </div>
-<div id="challenge-exercise" class="slide section level1">
-<h1>Challenge / Exercise</h1>
+<div id="exercise-challenge" class="slide section level1">
+<h1>Exercise / Challenge</h1>
 <p>The <em>NIEHS_NTP_SUBSTANCES.csv</em> data set from the National Toxicology Program has a list of known toxic substances that are studied at NIEHS.</p>
 <p><em>Challenge</em>: Your boss needs to set their budget next year to buy lab equipment and make supplier contracts. They ask you to create an HTML table with the following columns to include in their report: Substance Category, Substance Name, Analysis Method, and Supplier.</p>
 <p>Try to make the nicest looking table you can!</p>
@@ -718,6 +721,7 @@ abline(h=pi, col=&#39;red&#39;)
 </div>
 <div id="analyze" class="slide section level1">
 <h1>Analyze</h1>
+<p>If we think there is time we can add some additional code examples here:</p>
 <ul>
 <li>R</li>
 <li>Python</li>
@@ -726,6 +730,7 @@ abline(h=pi, col=&#39;red&#39;)
 </div>
 <div id="sharing" class="slide section level1">
 <h1>Sharing</h1>
+<p>Sharing can take many (and multiple) forms in RMarkdown:</p>
 <ul>
 <li>Documents</li>
 <li>Presentations</li>
@@ -738,6 +743,7 @@ abline(h=pi, col=&#39;red&#39;)
 </div>
 <div id="documents" class="slide section level1">
 <h1>Documents</h1>
+<p>Document options include:</p>
 <ul>
 <li>html_notebook - Interactive R Notebooks</li>
 <li>html_document - HTML document w/ Bootstrap CSS</li>
@@ -750,6 +756,7 @@ abline(h=pi, col=&#39;red&#39;)
 </div>
 <div id="presentations-slides" class="slide section level1">
 <h1>Presentations (slides)</h1>
+<p>Presentation options include:</p>
 <ul>
 <li>ioslides_presentation - HTML presentation with ioslides</li>
 <li>revealjs::revealjs_presentation - HTML presentation with reveal.js</li>
@@ -763,11 +770,11 @@ abline(h=pi, col=&#39;red&#39;)
 <ul>
 <li><p>Rmarkdown enables you to build an analysis notebook called an R notebook</p></li>
 <li><p>R Notebook (demo)</p></li>
-<li><p>We will build a notebook a little later</p></li>
 </ul>
 </div>
 <div id="dashboards" class="slide section level1">
 <h1>Dashboards</h1>
+<p>You can create a dashboard in RMarkdown</p>
 <ul>
 <li>flexdashbaord (demo)</li>
 </ul>

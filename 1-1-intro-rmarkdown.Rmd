@@ -349,6 +349,7 @@ Notice that the file contains three types of content:
 # Anatomy of an R Markdown File
 
 **Header (YAML)**
+
 - Three dashes (to open)
 - Title
 - Author
@@ -357,6 +358,7 @@ Notice that the file contains three types of content:
 - Three dashes (to close)
 
 **Body Options**
+
 - Code Chunks
 - Inline Code
 - Parameters
@@ -574,6 +576,7 @@ Try to make the nicest looking table you can!
 # Analyze
 
 If we think there is time we can add some additional code examples here:
+
 - R
 - Python
 - SQL
@@ -581,7 +584,8 @@ If we think there is time we can add some additional code examples here:
 
 # Sharing
 
-Sharing can take many (and multiple) forms in RMarkdown
+Sharing can take many (and multiple) forms in RMarkdown:
+
 -	Documents
 - Presentations
 - Notebooks
@@ -593,6 +597,7 @@ Sharing can take many (and multiple) forms in RMarkdown
 # Documents
 
 Document options include:
+
 - html_notebook - Interactive R Notebooks
 - html_document - HTML document w/ Bootstrap CSS
 - pdf_document - PDF document (via LaTeX template)
@@ -605,6 +610,7 @@ Document options include:
 # Presentations (slides)
 
 Presentation options include:
+
 - ioslides_presentation - HTML presentation with ioslides
 - revealjs::revealjs_presentation - HTML presentation with reveal.js
 - slidy_presentation - HTML presentation with W3C Slidy
