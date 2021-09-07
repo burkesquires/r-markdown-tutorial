@@ -346,10 +346,10 @@ Notice that the file contains three types of content:
 - R code chunks surrounded by ```
 - Text mixed with simple text formatting
 
-Header
-------
+# Anatomy of an R Markdown File
 
-**Header** in YAML format with:
+Header (YAML)
+------
 - Three dashes (to open)
 - Title
 - Author
@@ -357,11 +357,8 @@ Header
 - Output format(s)(Used for compiling - multiple output formats can be written here!)
 - Three dashes (to close)
 
-# Anatomy of an R Markdown File
-
 Body Options
 ------------
-
 - Code Chunks
 - Inline Code
 - Parameters
@@ -421,9 +418,9 @@ $$ \lim_{n \to \infty} 4 \sum_{k=0}^n \frac{ (-1)^n }{ 2n+1 } = \pi , $$
 
 ````
 `r ''`
-```{r}
-cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
-```
+  ```{r}
+  cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+  ```
 ````
 
 . . .
