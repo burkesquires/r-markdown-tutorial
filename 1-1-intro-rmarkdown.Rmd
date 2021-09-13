@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to R + markdown"
+title: "An Introduction to R + Markdown"
 subtitle: "Enabling Reproducible Science"
 author: "R. Burke Squires"
 date: "September 7, 2021"
@@ -30,7 +30,7 @@ output:
 -	Components
   - Lunch
 -	Analyze
--	Sharing
+-	Output
 
 
 ---
@@ -216,6 +216,7 @@ $$
 \end{align}
 $$
 ```
+
 \begin{align}
     x &= (a+b)^2 - (a-b)^2 \\
       &= 4ab
@@ -358,23 +359,25 @@ Setting width and height are optional.
   - Same file format - the difference is how YOU work with it.
 
 - When you want to extract all R code from an R Markdown document, you can call the function `knitr::purl()`
+
 ---
 
 # Difference between RMarkdown and RNotebooks
 
 - R Markdown documents are ‘knitted’, while R Notebooks are ‘previewed’.
-- Although the notebook preview looks similar to the knitted markdown document, the notebook preview does not execute any code chunks, but only shows you a rendered copy of the Markdown output of your document along with the most recent chunk output. The preview is also generated automatically whenever the notebook is saved. This would be especially useful if we have the preview showing in the Viewer window next to the console. This means that in R Notebooks, we are able to visually assess the output as we develop the document without having to knit the whole document again.
-- For example, with the following code chunk example (from the RMarkdown_Tutorial.R practice script), we are creating a table of species richness for each taxonomic group.
-- ```{r} richness <- edidiv %>% group_by(taxonGroup) %>% summarise(Species_richness = n_distinct(taxonName)) ``` 
-- To bring up the table output, we can add richness, pander(richness), kable(richness) to the end of that code chunk. If we had initially forgotten to add in either one of those functions, the table would not have been produced in both the knitted markdown document and the notebook preview. Imagine that we are now editing the R Markdown document / R Notebook document to include this function to bring up the table in the outputted document.
-- For RMarkdown: we would type in pander(richness), run that specific code chunk, and then have to click the Knit button in the taskbar to knit the whole document again.
-- For R Notebooks, we type in pander(richness), run that specific code chunk, and save the document, and the preview in the Viewer window would be updated on its own - there is no need to click the Preview button in the taskbar and run the code for the whole document.
+
+- Notebook preview does not execute any code chunks, 
+  - Only shows a rendered copy of the Markdown output with most recent chunk output. 
+  - Preview is generated automatically whenever the notebook is saved. 
+
 - Note: R Markdown Notebooks are only available in RStudio 1.0 or higher.
 
 
 ---
 
-#	Installation
+#	How Do You Get R Markdown
+
+**Installation**
 
 - Like the rest of R, R Markdown is free and open source 
 - You can install the R Markdown package from CRAN with:
@@ -385,7 +388,7 @@ Setting width and height are optional.
 
 #	How Does R Markdown Works?
 
-![How it works](images/rmarkdownflow.png){fig.align=center}
+![How it works](images/rmarkdownflow.png)
 
 - When you run render, R Markdown feeds the .Rmd file to `knitr`, which executes all of the code chunks and creates a new markdown (.md) document which includes the code and its output.
 
@@ -410,12 +413,12 @@ An example RMarkdown workflow:
 
 # Anatomy of an R Markdown File
 
-Open RStudio -> File -> New file -> Rmarkdown -> Click OK
+Open `RStudio` -> `File` -> `New file` -> `Rmarkdown` -> Click `OK`
 
 Notice that the file contains three types of content:
 
-- An (optional) YAML header surrounded by ---
-- R code chunks surrounded by ```
+- An (optional) YAML header surrounded by three dashes
+- R code chunks surrounded by three backticks
 - Text mixed with simple text formatting
 
 ---
@@ -445,7 +448,9 @@ Notice that the file contains three types of content:
 # Code Chunks: Adding in R
 
 **Goal:**
+
 add R code to the document,
+
 *along with its output*.
 
 Go ahead
@@ -689,9 +694,9 @@ If we think there is time we can add some additional code examples here:
 
 ---
 
-# Sharing
+# Output
 
-Sharing can take many (and multiple) forms in RMarkdown:
+Sharing the output can take many (and multiple) forms in RMarkdown:
 
 -	Documents
 - Presentations

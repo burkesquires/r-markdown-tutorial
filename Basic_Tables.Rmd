@@ -1,0 +1,28 @@
+---
+title: "Example Tables"
+author: "D.Veltri"
+date: "9/19/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+### Basic Data Frame Printing:
+```{r table-basic, echo=FALSE}
+patients_df = data.frame("Patient"=c('J.Jones','S.Patel','X.Liu'), "Proband"=c('Y','N','Y'), "WBC"=c(3700,4500,7000))
+print.data.frame(patients_df,row.names=TRUE)
+```
+
+### Prettier Option Knitr's 'kable' Function
+```{r table-kable, warning=FALSE, echo=FALSE, results='asis'}
+library(knitr)
+kable(patients_df, caption="My Patient Table")
+```
+
+### Even Prettier Option using the 'kableExtra' Package
+```{r table-kable-extra, warning=FALSE, echo=FALSE, results='asis'}
+library(kableExtra)
+kable(patients_df, caption="My Patient Table with Nice CSS Formatting!") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```

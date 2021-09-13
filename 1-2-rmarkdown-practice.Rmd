@@ -3,18 +3,32 @@ title: "RMarkdown Projects"
 author: "R. Burke Squires"
 date: "September 7, 2021"
 output:
-  slidy_presentation: default
+  # slidy_presentation: default
+  xaringan::moon_reader:
+  css: mckpam.css
+  lib_dir: libs
+  nature:
+    highlightStyle: github
+    highlightLines: true
+    countIncrementalSlides: false
+ 
 ---
 
-# Analyze
+# Analysis
 
-- R
-- Python
-- SQL
+- Open `1-3-mock-analysis.Rmd`
+
+- This is taken from `The Carpentries` [`R for Reproducible Scientific Analysis`](https://swcarpentry.github.io/r-novice-gapminder/) repository.
+
+- This project uses the `Gapminder` dataset for some simple analysis
+
+- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country.
 
 
+---
 
 # Sharing
+
 -	Documents
 - Presentations
 - Notebooks
@@ -23,7 +37,10 @@ output:
 - Websites
 - Interactive Documents
 
+---
+
 # Documents
+
 - html_notebook - Interactive R Notebooks
 - html_document - HTML document w/ Bootstrap CSS
 - pdf_document - PDF document (via LaTeX template)
@@ -32,13 +49,17 @@ output:
 - rtf_document - Rich Text Format document
 - md_document - Markdown document (various flavors)
 
+---
 
 # Presentations (slides)
+
 - ioslides_presentation - HTML presentation with ioslides
 - revealjs::revealjs_presentation - HTML presentation with reveal.js
 - slidy_presentation - HTML presentation with W3C Slidy
 - beamer_presentation - PDF presentation with LaTeX Beamer
 - powerpoint_presentation: PowerPoint presentation
+
+---
 
 # Notebooks
 
@@ -46,98 +67,26 @@ output:
 
 - we will build a notebook a little later
 
-# Dashboards
+---
 
+# Dashboards
+- flexdashboard (in `other` folder)
+
+---
 
 # Interactive Presentation
 
 - RShiny
 
+---
 
 # Practice
 
-We will build the following:
+- We will take a mock analysis and create a different outputs for it.
 
-- html document
-- slides
-- R notebook
-- RShiny app
+- We will build the following:
 
-
-
-
-
-# Anatomy of an R Markdown File
-
-Notice that the file contains three types of content:
-
-- An (optional) YAML header surrounded by ---
-- R code chunks surrounded by ```
-- Text mixed with simple text formatting
-
-Header
-------
-
-**Header** in YAML format with:
-- Three dashes (to open)
-- Title
-- Author
-- Date
-- Output format(s)(Used for compiling - multiple output formats can be written here!)
-- Three dashes (to close)
-
-Body
-====
-
-The main Markdown and code content
-Code chunks are offset by ``` before/after
-
-
-
-
-
-````{.R}
-data(iris)
-dir.create("examples")
-write.table(iris,file="examples/iris.tsv",sep="\t")
-````
-
-----------
-
-1.  Read in the data.
-
-2.  Describe the dataset: number of observations, variables, etcetera.
-
-    - inline `R` code (`` ``r "r nrow(iris)"`` ``)
-
-3.  Make a table of the number of observations for each species.
-
-    * `pander()`
-    * or `results="asis"` and `print.xtable(xtable( ),type='html')`
-
-4.  Plot the flower dimensions against each other,
-
-    * using `pairs()`, and colored by species.
-
-
-
-
-Sources
-=======
-- Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
-
-
-Resources
-===============
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-
-- [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
-- [Karl Broman's](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html) intro to R Markdown
-- [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
--  [Stack](http://stackoverflow.com/questions/tagged/rmarkdown)[Overflow](http://stackoverflow.com/questions/tagged/knitr)
--  my [technical notes](technical-notes.html) I made while writing this up
-- http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html
-- [R Markdown website tutorial](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
-- [Applied Statistics for Experimental Biology](https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/)
+  - html document
+  - slides
+  - R notebook
+  - RShiny app
