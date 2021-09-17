@@ -1,16 +1,15 @@
 ---
-title: "RMarkdown Projects"
+title: "R Markdown Practice"
 author: "R. Burke Squires"
-date: "September 7, 2021"
+date: "September 20, 2021"
 output:
-  # slidy_presentation: default
   xaringan::moon_reader:
-  css: mckpam.css
-  lib_dir: libs
-  nature:
-    highlightStyle: github
-    highlightLines: true
-    countIncrementalSlides: false
+    css: mckpam.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
  
 ---
 
@@ -27,16 +26,31 @@ output:
 
 ---
 
-# Sharing
+# Practice
+
+- We will take a mock analysis and create a different outputs for it.
+
+- We will build the following:
+
+  - R notebook
+  - html document
+  - slides
+  - RShiny app
+  - Dashboard (try if you have time)
+
+---
+
+# Output
 
 -	Documents
 - Presentations
 - Notebooks
 -	Slide Presentations
 - Dashboards
-- Websites
 - Interactive Documents
-
+- Other
+  - Websites
+  - Blogs
 ---
 
 # Documents
@@ -48,6 +62,27 @@ output:
 - odt_document - OpenDocument Text document
 - rtf_document - Rich Text Format document
 - md_document - Markdown document (various flavors)
+
+---
+
+# Outlines and Links
+
+# Outline
+* [Introduction](#intro)
+* [Section 1](#sec1)
+    + [Subsection 1](#sec1_sub1)
+    + [Subsection 2](#sec1_sub2)   
+
+## Introduction {#intro}
+…
+
+## Section 1 {#sec1}
+…
+
+### Subsection 1 {#sec1_sub1}
+…
+
+### Subsection 2 {#sec1_sub2}
 
 ---
 
@@ -65,13 +100,6 @@ output:
 
 - Rmarkdown enables you to build an analysis notebook called an R notebook
 
-- we will build a notebook a little later
-
----
-
-# Dashboards
-- flexdashboard (in `other` folder)
-
 ---
 
 # Interactive Presentation
@@ -80,13 +108,19 @@ output:
 
 ---
 
-# Practice
+# Dashboards
+- flexdashboard (in `other` folder)
 
-- We will take a mock analysis and create a different outputs for it.
+---
+# `flexdashboard` Overview
 
-- We will build the following:
+- Flexdashboards allow us to publish related content in R that is more organized for consumers of your work
 
-  - html document
-  - slides
-  - R notebook
-  - RShiny app
+- First we set up how we want to organize the layout of our page (rows, columns, input sidebar, etc.)
+
+- Next, we use our R Markdown skills to inject the content for each of these sections
+
+- If we want to have dynamic content (served through R Shiny), we need to do the following:
+  - Capture user input(s)
+  - Send input(s) to the appropriate location to render output via the reactive() function.
+  - The function checks for any changes and updates accordingly

@@ -1,0 +1,148 @@
+---
+title: "R Notebook - Mock Analysis"
+author: Ann Alyzer
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+---
+
+# Gapminder Analysis
+
+- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country since the 1950s.
+
+In this particular analysis we will be looking at the trends over time of life expectancy versus a country's gross domestic product or GDP. Gross domestic product (GDP) is the standard measure of the value added created through the production of goods and services in a country during a certain period. As such, it also measures the income earned from that production, or the total amount spent on final goods and services (less imports)[1].
+
+## Analysis Plan
+
+1. Import data
+1. Analyze data
+1. Plot data
+1. Draw amazing conclusions!
+
+## Import libraries and data
+
+```{r}
+library("ggplot2")
+source("bin/chunk-options.R")
+knitr_fig_path("01-")
+# Silently load in the data so the rest of the lesson works
+gapminder <- read.csv("data/gapminder_data.csv", header = TRUE)
+```
+
+## Preview the Gapminder data
+
+```{r}
+print(gapminder)
+```
+
+```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
+
+
+```{r lifeExp-line}
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+```
+
+
+```{r lifeExp-line-point}
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+```
+
+
+```{r lifeExp-layer-example-1}
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
+  geom_line(mapping = aes(color=continent)) + geom_point()
+```
+
+
+
+```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
+
+
+```{r axis-scale, fig.cap = "Scatterplot of GDP vs life expectancy showing logarithmic x-axis data spread"}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+```
+
+
+
+```{r lm-fit}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm")
+```
+
+
+```{r lm-fit2}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+```
+
+
+```{r facet}
+americas <- gapminder[gapminder$continent == "Americas",]
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp)) +
+  geom_line() +
+  facet_wrap( ~ country) +
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+
+```{r theme}
+ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```{r directory-check, echo = FALSE}
+if (!dir.exists("results")) {
+  dir.create("results")
+}
+```
+
+```{r save}
+lifeExp_plot <- ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
+```
+
+---
+[1] https://data.oecd.org/gdp/gross-domestic-product-gdp.htm
+
+Sources:
+
+- This analysis is adapted from *The Carpentries* [*R for Reproducible Scientific Analysis*](https://swcarpentry.github.io/r-novice-gapminder/) repository.
