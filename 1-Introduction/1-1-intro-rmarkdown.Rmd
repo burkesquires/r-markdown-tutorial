@@ -2,16 +2,8 @@
 title: "An Introduction to R + Markdown"
 subtitle: "Enabling Reproducible Science"
 author: "R. Burke Squires"
-date: "September 7, 2021"
+date: "September 20, 2021"
 output:
-#  slidy_presentation: default
-  # ioslides_presentation:
-  #  css: shiny-slides.css
-  #revealjs::revealjs_presentation
-    #theme: default
-    #highlight: pygments
-    # center: true
-
   xaringan::moon_reader:
     css: mckpam.css
     lib_dir: libs
@@ -532,6 +524,25 @@ plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
 
+
+---
+
+#Code Chunks vs Inline Code
+
+**Options are set like: ```{r this-chunk-name, my-options-go-here=TRUE/FALSE}**
+
+Common Options:
+- **eval**: TRUE/FALSE - Whether to evaluate a code chunk.
+- **echo**: TRUE/FALSE - Whether to echo the source code in the output document
+- **results**: hide/asis - Set to 'hide’ text or simply output code just as it is written
+- **warning, message, error**: TRUE/FALSE - Whether to show warnings, messages, and errors in the output
+- **include**: TRUE/FALSE - Whether to include anything from a code chunk in the output document.  NOTE: include=FALSE means echo = FALSE, results = 'hide', warning = FALSE, and message = FALSE
+- **cache**: TRUE/FALSE - If caching is enabled, the same code chunk will not be evaluated the next time fig.width and fig.height: No. - Size of R plots in inches can combine as: fig.dim = c(6, 4)
+- **out.width** and **out.height**: “No.%” – Page with of plot output e.g., out.width = '80%' means 80% of width
+- **fig.align**: left/center/right - The alignment of plots
+- **dev**: pdf/png/svg - The device format to record plots, usually 'pdf' for LaTeX, 'png’ for HTML output
+- **fig.cap**: string - The figure caption
+
 ---
 
 # Exercise
@@ -681,91 +692,7 @@ Try to make the nicest looking table you can!
 
 # Lunch
 
----
-
-# Analyze
-
-If we think there is time we can add some additional code examples here:
-
-- R
-- Python
-- SQL
-
-
----
-
-# Output
-
-Sharing the output can take many (and multiple) forms in RMarkdown:
-
--	Documents
-- Presentations
-- Notebooks
--	Slide Presentations
-- Dashboards
-- Websites
-- Interactive Documents
-
----
-
-# Documents
-
-Document options include:
-
-- html_notebook - Interactive R Notebooks
-- html_document - HTML document w/ Bootstrap CSS
-- pdf_document - PDF document (via LaTeX template)
-- word_document - Microsoft Word document (docx)
-- odt_document - OpenDocument Text document
-- rtf_document - Rich Text Format document
-- md_document - Markdown document (various flavors)
-
-
----
-
-# Presentations (slides)
-
-Presentation options include:
-
-- ioslides_presentation - HTML presentation with ioslides
-- revealjs::revealjs_presentation - HTML presentation with reveal.js
-- slidy_presentation - HTML presentation with W3C Slidy
-- beamer_presentation - PDF presentation with LaTeX Beamer
-- powerpoint_presentation: PowerPoint presentation
-
----
-
-# Notebooks
-
-- Rmarkdown enables you to build an analysis notebook called an R notebook
-
-- R Notebook (demo)
-
----
-
-# Dashboards
-
-You can create a dashboard in RMarkdown
-
-- flexdashbaord (demo)
-
----
-
-# Interactive Presentation
-
-- RShiny (demo)
-
-
----
-
-# Practice
-
-This afternoon we will build the following:
-
-- html document
-- slides
-- R notebook
-- RShiny app
+## Questions?
 
 
 ---
@@ -774,7 +701,7 @@ This afternoon we will build the following:
 
 - Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
 - RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
-
+- Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
 
 ---
 
