@@ -1,0 +1,51 @@
+---
+title: "R Notebook - Mock Analysis"
+author: Ann Alyzer
+output: html_notebook
+---
+
+# Gapminder Analysis
+
+- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country since the 1950s.
+
+In this particular analysis we will be looking at the trends over time of life expectancy versus a country's gross domestic product or GDP. Gross domestic product (GDP) is the standard measure of the value added created through the production of goods and services in a country during a certain period. As such, it also measures the income earned from that production, or the total amount spent on final goods and services (less imports)[1].
+
+## Analysis Plan
+
+1. Import data
+1. Analyze data
+1. Plot data
+1. Draw amazing conclusions!
+
+## Import libraries and data
+
+```{r}
+library("ggplot2")
+source("../bin/chunk-options.R")
+knitr_fig_path("01-")
+# Silently load in the data so the rest of the lesson works
+gapminder <- read.csv("../data/gapminder_data.csv", header = TRUE)
+```
+
+## Preview the Gapminder data
+
+```{r}
+print(gapminder)
+```
+
+
+```{r lifeExp-line-point}
+ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+```
+
+
+```{r lm-fit2}
+ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+```
+
+
+---
+
+[1] https://data.oecd.org/gdp/gross-domestic-product-gdp.htm
