@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>An Introduction to R + Markdown</title>
+    <title>Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="R. Burke Squires" />
     <meta name="date" content="2021-09-20" />
@@ -12,76 +12,260 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# An Introduction to R + Markdown
-## Enabling Reproducible Science
+# Markdown
+## The Markdown in R Markdown…
 ### R. Burke Squires
 ### September 20, 2021
 
 ---
 
 
-# R Markdown
+# What is Markdown?
 
--	Introduction &amp; Overview
--	Installation
--	How It Works 
--	Components
-  - Lunch
--	Analyze
--	Output
+- Markdown is a programming language to enable basic text files to be easily exported to (X)HTML
+
+--
+- Created in 2004 by John Gruber in collaboration with the late Aaron Swartz
+
+--
+- Emphasis is placed on **readability** - the **.md** or **.markdown** files can be read on their own
+
+--
+- Markdown is an informal specification, in 2016 groups started to make formal variants: MultiMarkdown, GitHub Flavored Markdown (GFM), **Pandoc**, CommonMark, etc.
+
+---
+
+# Another Programming Language???
+
+![Markdown is a programming language?](../images/fear.jpg)
+
+---
+
+# RELAX!
+
+---
+
+# Markdown
+
+- Markdown enables you to communicate your thoughts to your collaborators and your future self,
+
+- Combining text, documented code, even math, 
+
+- and **no fuss**.
+
+---
+
+# Markdown Playground
+
+- Lets practice some markdown!
+
+- Open a browser window and go to: https://stackedit.io/app
+
+- This will enable you to write teh markdown and see how it is formatted at the same time
+
+---
+
+# What Markdown looks like
+
+- Please type this in the stackedit.io window
+
+````{.markdown}
+Text formatting
+===============
+
+Inline markup
+-------------
+
+**Paragraphs** begin and end 
+with empty lines, and are *not* indented.
+
+- **bold** and *emphasis*
+- ~~strikeout~~
+- super^scripts^ and sub~scripts~
+- and `inline_code($fixed.width)`
+
+````
+
+---
+
+# What Markdown Formats to:
+
+- Does your output look like this?
+
+### Text formatting
+
+#### Inline markup
+
+**Paragraphs** begin and end with empty lines, and are *not* indented.
+
+- **bold** and *emphasis*
+- ~~strikeout~~
+- super^scripts^ and sub~scripts~
+- and `inline_code($fixed.width)`
+
+---
+
+# Lists
+
+````{.markdown}
+Lists must be preceded by an empty line,
+
+1.  ordered or unordered.
+ 1.  Indenting subsequent content
+    
+    -  will continue the list
+
+        *   and nest
+        *   other lists.
+
+1.  *Indenting* means one tab, or four spaces.
+````
+
+---
+
+# Lists
+
+Lists must be preceded by an empty line,
+
+1.  ordered or unordered.
+1.  Indenting subsequent content
+    
+    -  will continue the list
+
+        *  and nest
+        *  other lists.
+
+1.  *Indenting* means one tab, or four spaces.
+
+---
+
+# Markdown Can Do Math
+
+```
+- Math goes between `$`, single ($\pi$), or double: 
+$$ \frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$
+```
+
+- Math goes between `$`, single ($\pi$), or double: 
+`$$\frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$`
 
 
 ---
 
-# Introduction
+# Markdown Can Do Math
 
-**Reproducible Data Science**
+- Even math environments *inside* double dollar signs:
 
-- In a biology wet lab researchers must keep a lab notebook - why should computational experiments be any different?
+```{.md}
+$$
+\begin{align}
+    x &amp;= (a+b)^2 - (a-b)^2 \\
+      &amp;= 4ab
+\end{align}
+$$
+```
 
---
+`\begin{align}
+    x &amp;= (a+b)^2 - (a-b)^2 \\
+      &amp;= 4ab
+\end{align}`
 
-- Why do scientists keep a lab notebook?
-
---
-
-- You should be able to go back to a coding project 10 years later, or send code to a colleague, and not only reproduce the same results - but understand why you got them!
-
----
-
-# Literate Computing
-
-- This isn’t a new idea
---
-
-- Donald Knuth published **Literate Programming** in 1983
---
-
-- A single document describes an analysis using **natural language** and **code snippets**
---
-
-- Mathematica implemented a notebook in 1988.
---
-
-- More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* notebooks (which support many languages).
---
-
-- **R Markdown fits right into this paradigm!**
 
 ---
 
-# [Markdown..](../2-Markdown/1-Markdown.Rmd)
+# Code blocks
+
+````
+
+```r
+msg &lt;- "Hello, world."
+print(msg)
+```
+
+```
+## [1] "Hello, world."
+```
+````
+
+````{.r}
+msg &lt;- "Hello, world."
+print(msg)
+````
+
+
+**produces**
+
+
+```r
+msg &lt;- "Hello, world."
+print(msg)
+```
+
+```
+## [1] "Hello, world."
+```
+
 
 ---
 
-# R Markdown...
+# Blockquotes
+
+````
+&gt; I also dream about a modern replacement for LaTeX 
+&gt; designed from the ground up to target multiple output formats 
+&gt; (at least PDF, HTML, EPUB). -- [John MacFarlane](http://john.macfarlane.usesthis.com/)
+````
+
+**produces**
+
+&gt; I also dream about a modern replacement for LaTeX 
+&gt; designed from the ground up to target multiple output formats 
+&gt; (at least PDF, HTML, EPUB). -- [John MacFarlane](http://john.macfarlane.usesthis.com/)
+
 
 ---
 
-# Lunch
+# Links
 
-## Questions?
+A [link](https://rmarkdown.rstudio.com) just go in parentheses, 
+and can be [internal](#links-and-images).
 
+```{.markdown}
+A [link](https://rmarkdown.rstudio.com) just go in parentheses, 
+and can be [internal](#links-and-images).
+```
+
+---
+
+# Images
+
+Images are **the same** but with a `!` in front. \
+Setting width and height are optional.
+
+```{.markdown}
+![oh, internet](images/cat-pandoc.jpg){width=300px height=300px}
+```
+
+![oh, internet](../images/cat-pandoc.jpg){width=300px height=300px}
+
+---
+
+# Questions about Markdown?
+
+- People use Markdown in many places:
+  - RMarkdown documents
+  - Jupyter notebooks
+  - GitHub
+  - [Websites](https://www.markdownguide.org/getting-started/#websites)
+  - [Documents](https://www.markdownguide.org/getting-started/#documents)
+  - [Notes](https://www.markdownguide.org/getting-started/#notes)
+  - [Books](https://www.markdownguide.org/getting-started/#books)
+  - [Presentations](https://www.markdownguide.org/getting-started/#presentations)
+  - [Email messages](https://www.markdownguide.org/getting-started/#email)
+  - [Technical documentation](https://www.markdownguide.org/getting-started/#documentation)
+
+- Check out the [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
+- After using markdown for a bit, go read [pandoc's documentation](http://pandoc.org/README.html).
 
 ---
 
@@ -108,7 +292,7 @@ class: center, middle, inverse, title-slide
 *Other*
 - [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 - [Karl Broman's](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html) intro to R Markdown
-- [Stack](http://stackoverflow.com/questions/tagged/rmarkdown)[Overflow](http://stackoverflow.com/questions/tagged/knitr)
+- [StackOverflow](http://stackoverflow.com/questions/tagged/rmarkdown)[Overflow](http://stackoverflow.com/questions/tagged/knitr)
 - http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html
 
 *Book Writing*
