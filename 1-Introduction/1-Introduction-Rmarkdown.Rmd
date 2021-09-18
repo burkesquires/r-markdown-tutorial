@@ -46,29 +46,40 @@ output:
 # Literate Computing
 
 - This isn’t a new idea
---
 
 - Donald Knuth published **Literate Programming** in 1983
---
 
 - A single document describes an analysis using **natural language** and **code snippets**
---
+
+![Literate  computing](images/literate-computing.png)
+
+---
 
 - Mathematica implemented a notebook in 1988.
---
+![Mathematica notebook](images/1988_MathematicaGetsReady_zoom1.jpg)
+---
 
-- More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* notebooks (which support many languages).
---
+# Jupyter
 
-- **R Markdown fits right into this paradigm!**
+More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* notebooks (which support many languages).
+
+![Jupyterlab](images/labpreview.png)
 
 ---
 
-# [Markdown..](../2-Markdown/1-Markdown.Rmd)
+# R Markdown 
+
+...fits right into this paradigm!
 
 ---
 
-# [R Markdown...](../3-Rmarkdown/1-Rmarkdown.Rmd)
+# Markdown..
+
+- Lets look at markdown first before we explore Rmarkdown
+
+---
+
+# R Markdown...
 
 ---
 
