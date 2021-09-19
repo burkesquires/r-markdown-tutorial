@@ -15,11 +15,11 @@ output:
 
 # Analysis
 
-- Open `1-3-mock-analysis.Rmd`
+- Open `1-Practice-Start-here.Rmd`
 
 - This is taken from `The Carpentries` [`R for Reproducible Scientific Analysis`](https://swcarpentry.github.io/r-novice-gapminder/) repository.
 
-- This project uses the `Gapminder` dataset for some simple analysis
+- This project uses the `Gapminder` data set for some simple analysis
 
 - The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country.
 

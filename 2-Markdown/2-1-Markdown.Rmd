@@ -31,7 +31,8 @@ output:
 
 # Another Programming Language???
 
-![Markdown is a programming language?](../images/fear.jpg)
+![Markdown is a programming language?](images/fear.jpg)
+
 
 ---
 
@@ -131,6 +132,40 @@ Lists must be preceded by an empty line,
 
 1.  *Indenting* means one tab, or four spaces.
 
+
+---
+
+# Exercise
+
+This afternoon we will create a (very) simple analysis and uuse it as a model to practice some diifferent outputs from markdown.
+
+Now lets use some knowledge of markdown to draft our mock analysis overview and the steps we will take to complete our analysis.
+
+---
+
+You can create your own or use the information bbelow as a model:
+
+# Project Name
+
+## Your Name
+
+## Today's date
+
+**Overview**
+
+We want to compare the life expectancy of individuals from different countries over time to determine is life expectancy is increaseing or decreasing and what are some possible casuses. This project uses the `Gapminder` data set for some simple analysis
+
+- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country.
+
+Project Outline
+---------------
+
+1. step 1
+1. Step 2
+1. Step 3
+  1. Step 3.1
+  1. Step 3.2
+
 ---
 
 # Markdown Can Do Math
@@ -227,10 +262,10 @@ Images are **the same** but with a `!` in front. \
 Setting width and height are optional.
 
 ```{.markdown}
-![oh, internet](images/cat-pandoc.jpg){width=300px height=300px}
+![oh, internet](images/cat-pandoc.jpg)
 ```
 
-![oh, internet](../images/cat-pandoc.jpg){width=300px height=300px}
+![oh, internet](images/cat-pandoc.jpg)
 
 ---
 
@@ -251,36 +286,3 @@ Setting width and height are optional.
 - Check out the [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
 - After using markdown for a bit, go read [pandoc's documentation](http://pandoc.org/README.html).
 
----
-
-# This presentation was adapted from these sources
-
-- Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
-- Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
-
----
-
-# Resources
-
-*Cheatsheets*
-- Look in the cheatsheets folder
-  - [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
-  
-*Books*
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-- [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
-- [Applied Statistics for Experimental Biology](https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/)
-
-*Other*
-- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
-- [Karl Broman's](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html) intro to R Markdown
-- [StackOverflow](http://stackoverflow.com/questions/tagged/rmarkdown)[Overflow](http://stackoverflow.com/questions/tagged/knitr)
-- http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html
-
-*Book Writing*
-- [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
-
-*Websites*
-- [R Markdown website building tutorial](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
