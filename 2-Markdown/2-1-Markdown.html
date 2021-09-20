@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Markdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="R. Burke Squires" />
+    <meta name="date" content="2021-09-20" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link rel="stylesheet" href="mckpam.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Markdown
+## The Markdown in R Markdown…
+### R. Burke Squires
+### September 20, 2021
+
+---
+
+
+# What is Markdown?
+
+- Markdown is a programming language to enable basic text files to be easily exported to (X)HTML
+
+--
+- Created in 2004 by John Gruber in collaboration with the late Aaron Swartz
+
+--
+- Emphasis is placed on **readability** - the **.md** or **.markdown** files can be read on their own
+
+--
+- Markdown is an informal specification, in 2016 groups started to make formal variants: MultiMarkdown, GitHub Flavored Markdown (GFM), **Pandoc**, CommonMark, etc.
+
+---
+
+# Another Programming Language???
+
+![Markdown is a programming language?](images/fear.jpg)
+
+
+---
+
+# RELAX!
+
+---
+
+# Markdown
+
+- Markdown enables you to communicate your thoughts to your collaborators and your future self,
+
+- Combining text, documented code, even math, 
+
+- and **no fuss**.
+
+
+---
+
+## Would you rather read/write this code in HTML?
+
+```{.html}
+&lt;body&gt;
+  &lt;section&gt;
+    &lt;h1&gt;Fresh Berry Salad Recipe&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Blueberries&lt;/li&gt;
+      &lt;li&gt;Strawberries&lt;/li&gt;
+      &lt;li&gt;Blackberries&lt;/li&gt;
+      &lt;li&gt;Raspberries&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/section&gt;
+&lt;/body&gt;
+```
+
+Or this code in Markdown?
+
+
+```markdown
+    # Fresh Berry Salad Recipe
+
+    * Blueberries
+    * Strawberries
+    * Blackberries  
+    * Raspberries
+```
+
+---
+
+# Markdown Playground
+
+- Lets practice some markdown!
+
+- Open a browser window and go to: https://stackedit.io/app
+
+- This will enable you to write teh markdown and see how it is formatted at the same time
+
+---
+
+# What Markdown looks like
+
+- Please type this in the stackedit.io window
+
+````{.markdown}
+Text formatting
+===============
+
+Inline markup
+-------------
+
+**Paragraphs** begin and end 
+with empty lines, and are *not* indented.
+
+- **bold** and *emphasis*
+- ~~strikeout~~
+- super^scripts^ and sub~scripts~
+- and `inline_code($fixed.width)`
+
+````
+
+---
+
+# What Markdown Formats to:
+
+- Does your output look like this?
+
+### Text formatting
+
+#### Inline markup
+
+**Paragraphs** begin and end with empty lines, and are *not* indented.
+
+- **bold** and *emphasis*
+- ~~strikeout~~
+- super^scripts^ and sub~scripts~
+- and `inline_code($fixed.width)`
+
+---
+
+# Lists
+
+````{.markdown}
+Lists must be preceded by an empty line,
+
+1.  ordered or unordered.
+ 1.  Indenting subsequent content
+    
+    -  will continue the list
+
+        *   and nest
+        *   other lists.
+
+1.  *Indenting* means one tab, or four spaces.
+````
+
+---
+
+# Lists
+
+Lists must be preceded by an empty line,
+
+1.  ordered or unordered.
+1.  Indenting subsequent content
+    
+    -  will continue the list
+
+        *  and nest
+        *  other lists.
+
+1.  *Indenting* means one tab, or four spaces.
+
+
+---
+
+# Exercise
+
+This afternoon we will create a (very) simple analysis and uuse it as a model to practice some diifferent outputs from markdown.
+
+Now lets use some knowledge of markdown to draft our mock analysis overview and the steps we will take to complete our analysis.
+
+---
+
+You can create your own or use the information bbelow as a model:
+
+# Project Name
+
+## Your Name
+
+## Today's date
+
+**Overview**
+
+We want to compare the life expectancy of individuals from different countries over time to determine is life expectancy is increaseing or decreasing and what are some possible casuses. This project uses the `Gapminder` data set for some simple analysis
+
+- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country.
+
+Project Outline
+---------------
+
+1. step 1
+1. Step 2
+1. Step 3
+  1. Step 3.1
+  1. Step 3.2
+
+---
+
+# Markdown Can Do Math
+
+- Math goes between `$`, single ($\pi$), or double:
+
+```
+$$ \frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$
+```
+
+`$$\frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$`
+
+
+---
+
+# Markdown Can Do Math
+
+- Even math environments *inside* double dollar signs:
+
+```{.md}
+$$
+\begin{align}
+    x &amp;= (a+b)^2 - (a-b)^2 \\
+      &amp;= 4ab
+\end{align}
+$$
+```
+
+`\begin{align}
+    x &amp;= (a+b)^2 - (a-b)^2 \\
+      &amp;= 4ab
+\end{align}`
+
+
+---
+
+# Code blocks
+
+````
+
+```r
+msg &lt;- "Hello, world."
+print(msg)
+```
+
+```
+## [1] "Hello, world."
+```
+````
+
+````{.r}
+msg &lt;- "Hello, world."
+print(msg)
+````
+
+
+**produces**
+
+
+```r
+msg &lt;- "Hello, world."
+print(msg)
+```
+
+```
+## [1] "Hello, world."
+```
+
+
+---
+
+# Blockquotes
+
+````
+&gt; I also dream about a modern replacement for LaTeX 
+&gt; designed from the ground up to target multiple output formats 
+&gt; (at least PDF, HTML, EPUB). -- [John MacFarlane](http://john.macfarlane.usesthis.com/)
+````
+
+**produces**
+
+&gt; I also dream about a modern replacement for LaTeX 
+&gt; designed from the ground up to target multiple output formats 
+&gt; (at least PDF, HTML, EPUB). -- [John MacFarlane](http://john.macfarlane.usesthis.com/)
+
+
+---
+
+# Links
+
+A [link](https://rmarkdown.rstudio.com) just go in parentheses, 
+and can be [internal](#links-and-images).
+
+```{.markdown}
+A [link](https://rmarkdown.rstudio.com) just go in parentheses, 
+and can be [internal](#links-and-images).
+```
+
+---
+
+# Images
+
+Images are **the same** but with a `!` in front. \
+Setting width and height are optional.
+
+```{.markdown}
+![oh, internet](images/cat-pandoc.jpg)
+```
+
+![oh, internet](images/cat-pandoc.jpg)
+
+---
+
+# Questions about Markdown?
+
+- People use Markdown in many places:
+  - R Markdown documents
+  - Jupyter notebooks
+  - GitHub
+  - [Websites](https://www.markdownguide.org/getting-started/#websites)
+  - [Documents](https://www.markdownguide.org/getting-started/#documents)
+  - [Notes](https://www.markdownguide.org/getting-started/#notes)
+  - [Books](https://www.markdownguide.org/getting-started/#books)
+  - [Presentations](https://www.markdownguide.org/getting-started/#presentations)
+  - [Email messages](https://www.markdownguide.org/getting-started/#email)
+  - [Technical documentation](https://www.markdownguide.org/getting-started/#documentation)
+
+- Check out the [Markdown Guide](https://www.markdownguide.org/cheat-sheet/)
+- After using markdown for a bit, go read [pandoc's documentation](http://pandoc.org/README.html).
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

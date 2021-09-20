@@ -15,7 +15,7 @@ output:
 
 # Analysis
 
-- Open `1-Practice-Start-here.Rmd`
+- Open `4-1-Practice-Start-here.Rmd`
 
 - This is taken from `The Carpentries` [`R for Reproducible Scientific Analysis`](https://swcarpentry.github.io/r-novice-gapminder/) repository.
 
@@ -46,8 +46,8 @@ output:
 - Presentations
 - Notebooks
 -	Slide Presentations
-- Dashboards
 - Interactive Documents
+- Dashboards
 - Other
   - Websites
   - Blogs

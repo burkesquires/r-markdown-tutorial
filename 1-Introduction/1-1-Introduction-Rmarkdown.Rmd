@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to R + Markdown"
+title: "An Introduction to R Markdown"
 subtitle: "Enabling Reproducible Science"
 author: "R. Burke Squires"
 date: "September 20, 2021"

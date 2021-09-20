@@ -1,18 +1,24 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R + Markdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="R. Burke Squires" />
+    <meta name="date" content="2021-09-20" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link rel="stylesheet" href="mckpam.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R + Markdown
+## It is about time…
+### R. Burke Squires
+### September 20, 2021
+
 ---
-title: "R + Markdown"
-subtitle: "It is about time..."
-author: "R. Burke Squires"
-date: "September 20, 2021"
-output:
-  xaringan::moon_reader:
-    css: mckpam.css
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      
----
+
 
 
 # Are You Ready To Learn About R + Markdown?
@@ -39,13 +45,13 @@ output:
 
 ---
 
-# What is possible with R Markdown
+# What is possible with RMarkdown
 
 - Lets see what is possiblew with R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
 
 --
 
-- I suggest you download (and print) the [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+- I suggest you download (and print) the [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
 
 ---
 
@@ -59,14 +65,14 @@ output:
 | Format output?  | Yes        | No          | No        |
 
 
-- *R Notebook vs R Markdown*
+- *R Notebook vs RMarkdown*
   - Same file format - the difference is how YOU work with it.
 
 - When you want to extract all R code from an R Markdown document, you can call the function `knitr::purl()`
 
 ---
 
-# Difference between R Markdown and RNotebooks
+# Difference between RMarkdown and RNotebooks
 
 - R Markdown documents are ‘knitted’, while R Notebooks are ‘previewed’.
 
@@ -119,9 +125,9 @@ output:
 
 # Workflow
 
-An example R Markdown workflow:
+An example RMarkdown workflow:
 
-1. Open a **new .Rmd file** in the RStudio IDE by going to ~File > New File > R Markdown~
+1. Open a **new .Rmd file** in the RStudio IDE by going to ~File &gt; New File &gt; R Markdown~
 2. **Embed code** in chunks. Run code by line, by chunk, or all at once.
 3. **Write text** and add tables, figures, images, and citations. Format with Markdown syntax or the RStudio Visual Markdown Editor.
 4. **Set output format(s) and options** in the YAML header. Customize themes or add parameters to execute or add interactivity with Shiny.
@@ -132,7 +138,7 @@ An example R Markdown workflow:
 
 # Anatomy of an R Markdown File
 
-Open `RStudio` -> `File` -> `New file` -> `Rmarkdown` -> Click `OK`
+Open `RStudio` -&gt; `File` -&gt; `New file` -&gt; `Rmarkdown` -&gt; Click `OK`
 
 Notice that the file contains three types of content:
 
@@ -177,7 +183,7 @@ Notice that the file contains three types of content:
 - Just add a *chunk* of R code, wrapped in
 
 ````
-```{r}`r ''`
+```{r}
 2^(0:10)
 ```
 ````
@@ -191,31 +197,20 @@ Notice that the file contains three types of content:
 - Powers of two?
 
 ````
-```{r}`r ''`
+```{r}
 2^(0:10)
 ```
 ````
 
 Powers of two?
 
-```{r}
+
+```r
 2^(0:10)
 ```
 
----
-
-# Code Chunks: Adding in R
-
-````
-`r ''`
-```{r, eval=FALSE}
-cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 ```
-````
---
-
-```{r}
-cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+##  [1]    1    2    4    8   16   32   64  128  256  512 1024
 ```
 
 ---
@@ -223,8 +218,33 @@ cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 # Code Chunks: Adding in R
 
 ````
-`r ''`
-```{r, eval=FALSE}
+
+
+```r
+cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+```
+````
+--
+
+
+```r
+cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
+```
+
+```
+##  [1] 4.000000 2.666667 3.466667 2.895238 3.339683 2.976046 3.283738 3.017072
+##  [9] 3.252366 3.041840 3.232316 3.058403 3.218403 3.070255 3.208186 3.079153
+## [17] 3.200366 3.086080 3.194188 3.091624 3.189185
+```
+
+---
+
+# Code Chunks: Adding in R
+
+````
+
+
+```r
 plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
@@ -232,10 +252,13 @@ abline(h=pi, col='red')
 
 --
 
-```{r, fig.height=3.5}
+
+```r
 plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
+
+![](3-1-Rmarkdown_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -263,12 +286,13 @@ See more here: https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 
 - Code results can be inserted directly into the text of a .Rmd file by enclosing the code with `r `. The file below uses `r ` twice to call colorFunc, which returns “heat.colors.”
 
-```{r include=TRUE}
-colorfunc <- "heat.colors"
-# colorfunc <- "terrain.colors"
+
+```r
+colorfunc &lt;- "heat.colors"
+# colorfunc &lt;- "terrain.colors"
 ```
 
-Base R comes with many functions for generating colors. The code below demonstrates the `r colorfunc` function.
+Base R comes with many functions for generating colors. The code below demonstrates the heat.colors function.
 
 ---
 
@@ -286,8 +310,13 @@ Base R comes with many functions for generating colors. The code below demonstra
 
 - To process a code chunk using an alternate language engine, replace the r at the start of your chunk declaration with the name of the language
 
-```{bash}
+
+```bash
 pwd
+```
+
+```
+## /Users/squiresrb/Documents/GitHub/r-markdown-tutorial/3-Rmarkdown
 ```
 - Note that chunk options like echo and results are all valid when using a language engine like python.
 
@@ -301,10 +330,19 @@ https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 
 **Lets list some parts of the cell!**
 
-```{python python-chunk}
+
+```python
 parts = ['nucleus','ribosome','plasma membrane','mitochondria','endoplasmic reticulum']
 for p in parts:
     print(p)
+```
+
+```
+## nucleus
+## ribosome
+## plasma membrane
+## mitochondria
+## endoplasmic reticulum
 ```
 
 ---
@@ -313,9 +351,17 @@ for p in parts:
 
 **Lets list some types of bacteria by genus!**
 
-```{ruby ruby-chunk}
+
+```ruby
 bacs = ['Micrococcus','Staphylococcus','Bacillus','Pseudomona']
 bacs.each {|b| puts b}
+```
+
+```
+## Micrococcus
+## Staphylococcus
+## Bacillus
+## Pseudomona
 ```
 
 ---
@@ -336,7 +382,7 @@ R Markdown documents can include one or more parameters whose values can be set 
 Parameters are declared using the params field within the YAML header of the document. For example, the file above creates the parameter data and assigns it the default value "hawaii".
 
 **Using Parameters in Code**
-Parameters are made available within the knit environment as a read-only list named params. To access a parameter in code, call params$<parameter name>.
+Parameters are made available within the knit environment as a read-only list named params. To access a parameter in code, call params$&lt;parameter name&gt;.
 
 **Setting Parameters values**
 Add a params argument to render to create a report that uses a new set of parameter values. Here we modify our report to use the aleutians data set with
@@ -372,8 +418,8 @@ Try to make the nicest looking table you can!
 
 # This presentation was adapted from these sources
 
-- Peter Ralph, Univ. of Oregon, [R Markdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [R Markdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
+- Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
+- RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
 - Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
 
 ---
@@ -382,7 +428,7 @@ Try to make the nicest looking table you can!
 
 *Cheatsheets*
 - Look in the cheatsheets folder
-  - [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+  - [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
   
 *Books*
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
@@ -402,3 +448,126 @@ Try to make the nicest looking table you can!
 
 *Websites*
 - [R Markdown website building tutorial](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

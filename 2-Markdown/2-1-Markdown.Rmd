@@ -48,6 +48,36 @@ output:
 
 - and **no fuss**.
 
+
+---
+
+## Would you rather read/write this code in HTML?
+
+```{.html}
+<body>
+  <section>
+    <h1>Fresh Berry Salad Recipe</h1>
+    <ul>
+      <li>Blueberries</li>
+      <li>Strawberries</li>
+      <li>Blackberries</li>
+      <li>Raspberries</li>
+    </ul>
+  </section>
+</body>
+```
+
+Or this code in Markdown?
+
+```{markdown}
+    # Fresh Berry Salad Recipe
+
+    * Blueberries
+    * Strawberries
+    * Blackberries  
+    * Raspberries
+```
+
 ---
 
 # Markdown Playground
@@ -170,12 +200,12 @@ Project Outline
 
 # Markdown Can Do Math
 
+- Math goes between `$`, single ($\pi$), or double:
+
 ```
-- Math goes between `$`, single ($\pi$), or double: 
 $$ \frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$
 ```
 
-- Math goes between `$`, single ($\pi$), or double: 
 $$\frac{\pi}{4} = \sum_{n=0}^\infty \frac{(-1)^n}{2k+1} .$$
 
 
@@ -272,7 +302,7 @@ Setting width and height are optional.
 # Questions about Markdown?
 
 - People use Markdown in many places:
-  - RMarkdown documents
+  - R Markdown documents
   - Jupyter notebooks
   - GitHub
   - [Websites](https://www.markdownguide.org/getting-started/#websites)
