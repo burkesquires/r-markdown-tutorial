@@ -164,7 +164,7 @@ Notice that the file contains three types of content:
 
 ---
 
-# Code Chunks: Adding in R
+# Code Chunks
 
 - **Goal:**
 

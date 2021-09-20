@@ -10,12 +10,15 @@ output: html_notebook
 
 In this particular analysis we will be looking at the trends over time of life expectancy versus a country's gross domestic product or GDP. Gross domestic product (GDP) is the standard measure of the value added created through the production of goods and services in a country during a certain period. As such, it also measures the income earned from that production, or the total amount spent on final goods and services (less imports)[1].
 
+(If you have time, try creating new plots from other gapminder data!)
+
 ## Analysis Plan
 
 1. Import data
 1. Analyze data
 1. Plot data
 1. Draw amazing conclusions!
+
 
 ## Import libraries and data
 
@@ -30,7 +33,43 @@ gapminder <- read.csv("../data/gapminder_data.csv", header = TRUE)
 ## Preview the Gapminder data
 
 ```{r}
-print(gapminder)
+head(gapminder)
+```
+
+```{r}
+tail(gapminder)
+```
+
+```{r}
+names(gapminder)
+```
+
+```{r}
+ncol(gapminder)
+```
+
+```{r}
+length(gapminder)
+```
+
+```{r}
+dim(gapminder)
+```
+
+```{r}
+nrow(gapminder)
+```
+
+A statistical overview can be obtained with `summary()`:
+
+```{r}
+summary(gapminder)
+```
+
+We can plot the life expectancy:
+
+```{r}
+plot(lifeExp ~ year, gapminder)
 ```
 
 ```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
@@ -129,3 +168,4 @@ ggsave(filename = "results/lifeExp.png", plot = lifeExp_plot, width = 12, height
 Sources:
 
 - This analysis is adapted from *The Carpentries* [*R for Reproducible Scientific Analysis*](https://swcarpentry.github.io/r-novice-gapminder/) repository.
+- [Stat 545](https://stat545.com/)

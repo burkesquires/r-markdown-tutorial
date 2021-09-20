@@ -75,7 +75,7 @@ More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* n
 
 # Markdown..
 
-- Lets look at markdown first before we explore Rmarkdown
+- Lets look at markdown first before we explore R Markdown
 
 ---
 
@@ -92,8 +92,8 @@ More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* n
 
 # This presentation was adapted from these sources
 
-- Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
+- Peter Ralph, Univ. of Oregon, [R Markdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
+- RStudio's [R Markdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
 - Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
 
 ---
@@ -102,7 +102,7 @@ More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* n
 
 *Cheatsheets*
 - Look in the cheatsheets folder
-  - [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+  - [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
   
 *Books*
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
