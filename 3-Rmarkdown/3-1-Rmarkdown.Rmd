@@ -174,13 +174,15 @@ Notice that the file contains three types of content:
 
 - Go ahead
 
-- Just add a *chunk* of R code, wrapped in
+- To add a *chunk* of R code, type what you see below...
 
 ````
 ```{r}`r ''`
 2^(0:10)
 ```
 ````
+
+or insert a chunk from the menu: `Code` -> `Insert Chunk`
 
 ---
 

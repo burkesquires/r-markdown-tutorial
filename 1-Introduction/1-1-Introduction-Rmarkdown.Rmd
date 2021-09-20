@@ -109,6 +109,7 @@ More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* n
 - [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 - [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
 - [Applied Statistics for Experimental Biology](https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/)
+- [knitr in a knutshell](https://kbroman.org/knitr_knutshell/)
 
 *Other*
 - [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
