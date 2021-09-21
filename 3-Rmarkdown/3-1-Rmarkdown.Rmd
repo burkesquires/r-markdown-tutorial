@@ -354,17 +354,6 @@ Check this out: https://www.tablesgenerator.com/markdown_tables
 
 ---
 
-# Exercise / Challenge
-
-The *NIEHS_NTP_SUBSTANCES.csv* data set from the National Toxicology Program has a list of known toxic substances that are studied at NIEHS.
-
-*Challenge*: Your boss needs to set their budget next year to buy lab equipment and make supplier contracts. They ask you to create an HTML table with the following columns to include in their report: Substance Category, Substance Name, Analysis Method, and Supplier.
-
-Try to make the nicest looking table you can!
-
-
----
-
 # Lunch
 
 ## Questions?
