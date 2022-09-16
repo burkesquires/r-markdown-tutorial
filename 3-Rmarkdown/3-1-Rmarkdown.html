@@ -4,18 +4,26 @@
     <title>R + Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="R. Burke Squires" />
-    <meta name="date" content="2021-09-20" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <meta name="date" content="2022-09-16" />
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="mckpam.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # R + Markdown
+]
+.subtitle[
 ## It is about time…
+]
+.author[
 ### R. Burke Squires
-### September 20, 2021
+]
+.date[
+### September 16, 2022
+]
 
 ---
 
@@ -45,13 +53,13 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# What is possible with RMarkdown
+# What is possible with R Markdown
 
 - Lets see what is possiblew with R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
 
 --
 
-- I suggest you download (and print) the [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+- I suggest you download (and print) the [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
 
 ---
 
@@ -65,14 +73,14 @@ class: center, middle, inverse, title-slide
 | Format output?  | Yes        | No          | No        |
 
 
-- *R Notebook vs RMarkdown*
+- *R Notebook vs R Markdown*
   - Same file format - the difference is how YOU work with it.
 
 - When you want to extract all R code from an R Markdown document, you can call the function `knitr::purl()`
 
 ---
 
-# Difference between RMarkdown and RNotebooks
+# Difference between R Markdown and RNotebooks
 
 - R Markdown documents are ‘knitted’, while R Notebooks are ‘previewed’.
 
@@ -125,7 +133,7 @@ class: center, middle, inverse, title-slide
 
 # Workflow
 
-An example RMarkdown workflow:
+An example R Markdown workflow:
 
 1. Open a **new .Rmd file** in the RStudio IDE by going to ~File &gt; New File &gt; R Markdown~
 2. **Embed code** in chunks. Run code by line, by chunk, or all at once.
@@ -170,7 +178,7 @@ Notice that the file contains three types of content:
 
 ---
 
-# Code Chunks: Adding in R
+# Code Chunks
 
 - **Goal:**
 
@@ -180,13 +188,15 @@ Notice that the file contains three types of content:
 
 - Go ahead
 
-- Just add a *chunk* of R code, wrapped in
+- To add a *chunk* of R code, type what you see below...
 
 ````
 ```{r}
 2^(0:10)
 ```
 ````
+
+or insert a chunk from the menu: `Code` -&gt; `Insert Chunk`
 
 ---
 
@@ -316,7 +326,7 @@ pwd
 ```
 
 ```
-## /Users/squiresrb/Documents/GitHub/r-markdown-tutorial/3-Rmarkdown
+## /Users/burkesquires/Documents/GitHub/r-markdown-tutorial/3-Rmarkdown
 ```
 - Note that chunk options like echo and results are all valid when using a language engine like python.
 
@@ -398,17 +408,6 @@ Check this out: https://www.tablesgenerator.com/markdown_tables
 
 ---
 
-# Exercise / Challenge
-
-The *NIEHS_NTP_SUBSTANCES.csv* data set from the National Toxicology Program has a list of known toxic substances that are studied at NIEHS.
-
-*Challenge*: Your boss needs to set their budget next year to buy lab equipment and make supplier contracts. They ask you to create an HTML table with the following columns to include in their report: Substance Category, Substance Name, Analysis Method, and Supplier.
-
-Try to make the nicest looking table you can!
-
-
----
-
 # Lunch
 
 ## Questions?
@@ -418,8 +417,8 @@ Try to make the nicest looking table you can!
 
 # This presentation was adapted from these sources
 
-- Peter Ralph, Univ. of Oregon, [Rmarkdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [Rmarkdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
+- Peter Ralph, Univ. of Oregon, [R Markdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
+- RStudio's [R Markdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
 - Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
 
 ---
@@ -428,7 +427,7 @@ Try to make the nicest looking table you can!
 
 *Cheatsheets*
 - Look in the cheatsheets folder
-  - [RMarkdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
+  - [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
   
 *Books*
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
@@ -495,6 +494,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

@@ -1,12 +1,12 @@
 ---
 title: "R Notebook - Mock Analysis"
-author: Ann Alyzer
+author: Ann_Alyzer
 output: html_notebook
 ---
 
 # Gapminder Analysis
 
-- The [Gapminder project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country since the 1950s.
+- The [Gapminder_project](https://www.gapminder.org/data/) has collected data from countries around the world that look at communication, economic, education, environment, health, infrastructure, population, society, and work in each country since the 1950s.
 
 In this particular analysis we will be looking at the trends over time of life expectancy versus a country's gross domestic product or GDP. Gross domestic product (GDP) is the standard measure of the value added created through the production of goods and services in a country during a certain period. As such, it also measures the income earned from that production, or the total amount spent on final goods and services (less imports)[1].
 
