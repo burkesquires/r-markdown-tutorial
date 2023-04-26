@@ -2,7 +2,7 @@
 title: "R + Markdown"
 subtitle: "It is about time..."
 author: "R. Burke Squires"
-date: "September 16, 2022"
+date: "April 28, 2023"
 output:
   xaringan::moon_reader:
     css: mckpam.css
@@ -34,14 +34,16 @@ output:
 --
 
 - R Markdown documents
-  - Fully reproducible 
+
+  - Fully reproducible
+  
   - Support dozens of static and dynamic output formats
 
 ---
 
 # What is possible with R Markdown
 
-- Lets see what is possiblew with R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
+- Lets see what is possible with R Markdown [Gallery](https://rmarkdown.rstudio.com/gallery.html).
 
 --
 

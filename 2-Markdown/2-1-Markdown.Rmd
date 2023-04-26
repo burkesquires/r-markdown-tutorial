@@ -2,7 +2,7 @@
 title: "Markdown"
 subtitle: "The Markdown in R Markdown..."
 author: "R. Burke Squires"
-date: "September 16, 2022"
+date: "April 28, 2023"
 output:
   xaringan::moon_reader:
     css: mckpam.css
