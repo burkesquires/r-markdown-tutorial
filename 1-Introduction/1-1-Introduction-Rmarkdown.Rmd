@@ -16,7 +16,7 @@ output:
 
 # R Markdown
 
--	Introduction & Overview
+-	Introduction
 -	Installation
 -	How It Works 
 -	Components
@@ -55,7 +55,9 @@ output:
 
 ---
 
-- Mathematica implemented a notebook in 1988.
+# Mathematica 
+
+- Iimplemented a notebook in 1988.
 ![Mathematica notebook](images/1988_MathematicaGetsReady_zoom1.jpg)
 ---
 

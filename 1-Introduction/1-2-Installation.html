@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>An Introduction to R Markdown</title>
+    <title>RMarkdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="R. Burke Squires" />
     <meta name="date" content="2023-04-28" />
@@ -13,10 +13,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# An Introduction to R Markdown
+# RMarkdown
 ]
 .subtitle[
-## Enabling Reproducible Science
+## Installation and Setup
 ]
 .author[
 ### R. Burke Squires
@@ -28,114 +28,32 @@ class: center, middle, inverse, title-slide
 ---
 
 
-# R Markdown
+# RMarkdown Installation and Setup:
 
--	Introduction &amp; Overview
--	Installation
--	How It Works 
--	Components
-  - Lunch
--	Analyze
--	Output
+- **Install R:** 
+  - RMarkdown requires R to be installed on your computer. Visit the R project website to download the latest version.
 
+- **Install RStudio:** 
+  - RStudio is a popular integrated development environment (IDE) for R and is recommended for working with RMarkdown. Download and install the latest version of RStudio from the RStudio website.
 
----
-
-# Introduction
-
-**Reproducible Data Science**
-
-- In a biology wet lab researchers must keep a lab notebook - why should computational experiments be any different?
-
---
-
-- Why do scientists keep a lab notebook?
-
---
-
-- You should be able to go back to a coding project 10 years later, or send code to a colleague, and not only reproduce the same results - but understand why you got them!
+- **Install Pandoc:** 
+  - Pandoc is a software tool used to convert RMarkdown files to various output formats. Install Pandoc by downloading the appropriate installer from the Pandoc website.
 
 ---
-
-# Literate Computing
-
-- This isn’t a new idea
-
-- Donald Knuth published **Literate Programming** in 1983
-
-- A single document describes an analysis using **natural language** and **code snippets**
-
-![Literate  computing](images/literate-computing.png)
-
----
-
-- Mathematica implemented a notebook in 1988.
-![Mathematica notebook](images/1988_MathematicaGetsReady_zoom1.jpg)
----
-
-# Jupyter
-
-More recently, we’ve seen a resurgence of this with *IPython*, now *Jupyter* notebooks (which support many languages).
-
-![Jupyterlab](images/labpreview.png)
-
----
-
-# R Markdown 
-
-...fits right into this paradigm!
-
----
-
-# Markdown..
-
-- Lets look at markdown first before we explore R Markdown
-
----
-
-# R Markdown...
-
----
-
-# Lunch
-
-## Questions?
+# RMarkdown Document:
 
 
----
+- **Create a New RMarkdown File:** 
+  - Open RStudio and create a new RMarkdown file by selecting "File" &gt; "New File" &gt; "RMarkdown". Choose the output format and enter the title and author information.
 
-# This presentation was adapted from these sources
+- **Write Content:** 
+  - Write the content of your RMarkdown file using Markdown formatting and R code chunks.
 
-- Peter Ralph, Univ. of Oregon, [R Markdown Tutorial](https://github.com/petrelharp/r-markdown-tutorial)
-- RStudio's [R Markdown Introduction](https://rmarkdown.rstudio.com/lesson-1.html)
-- Dan Veltri's [Introduction to R Markdown](https://bioinformatics.niaid.nih.gov/resources#10.4.4)
+- **Knit the Document:** 
+  - To generate the output document, click the "Knit" button in the RStudio toolbar or use the keyboard shortcut "Ctrl+Shift+K". The output will be displayed in the format you specified when creating the RMarkdown file.
 
----
-
-# Resources
-
-*Cheatsheets*
-- Look in the cheatsheets folder
-  - [R Markdown cheatsheet](cheatsheeets/rmarkdown-reference.pdf)
-  
-*Books*
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-- [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
-- [Applied Statistics for Experimental Biology](https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/)
-- [knitr in a knutshell](https://kbroman.org/knitr_knutshell/)
-
-*Other*
-- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
-- [Karl Broman's](http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html) intro to R Markdown
-- [Stack](http://stackoverflow.com/questions/tagged/rmarkdown)[Overflow](http://stackoverflow.com/questions/tagged/knitr)
-- http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html
-
-*Book Writing*
-- [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
-
-*Websites*
-- [R Markdown website building tutorial](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
+- **Customize Output:** 
+  - You can customize the output of your RMarkdown file by modifying the YAML header or adding formatting options. Check the RMarkdown documentation for more information on customizing output.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

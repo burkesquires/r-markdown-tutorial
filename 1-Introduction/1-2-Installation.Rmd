@@ -1,0 +1,42 @@
+---
+title: "RMarkdown"
+subtitle: "Installation and Setup"
+author: "R. Burke Squires"
+date: "April 28, 2023"
+output:
+  xaringan::moon_reader:
+    css: mckpam.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+---
+
+# RMarkdown Installation and Setup:
+
+- **Install R:** 
+  - RMarkdown requires R to be installed on your computer. Visit the R project website to download the latest version.
+
+- **Install RStudio (from Posit):** 
+  - RStudio is a popular integrated development environment (IDE) for R and is recommended for working with RMarkdown. Download and install the latest version of RStudio from the RStudio website.
+
+- **Install Pandoc:** 
+  - Pandoc is a software tool used to convert RMarkdown files to various output formats. Install Pandoc by downloading the appropriate installer from the Pandoc website.
+
+---
+# RMarkdown Document:
+
+
+- **Create a New RMarkdown File:** 
+  - Open RStudio and create a new RMarkdown file by selecting "File" > "New File" > "RMarkdown". Choose the output format and enter the title and author information.
+
+- **Write Content:** 
+  - Write the content of your RMarkdown file using Markdown formatting and R code chunks.
+
+- **Knit the Document:** 
+  - To generate the output document, click the "Knit" button in the RStudio toolbar or use the keyboard shortcut "Ctrl+Shift+K". The output will be displayed in the format you specified when creating the RMarkdown file.
+
+- **Customize Output:** 
+  - You can customize the output of your RMarkdown file by modifying the YAML header or adding formatting options. Check the RMarkdown documentation for more information on customizing output.
