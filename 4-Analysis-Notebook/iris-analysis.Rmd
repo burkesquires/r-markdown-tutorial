@@ -1,0 +1,82 @@
+---
+title: "Data Analysis Workflow with Iris Dataset"
+author: "R. Burke Squires"
+date: "2023-04-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(caret)
+```
+
+# Introduction
+
+This R Markdown document demonstrates a data analysis workflow using the `iris` dataset. We'll explore the dataset, visualize the data, and create a simple classification model.
+
+# Data Exploration
+
+First, let's take a look at the `iris` dataset.
+
+```{r}
+head(iris)
+summary(iris)
+```
+
+The `iris` dataset contains 150 observations of iris flowers, with four measurements (sepal length, sepal width, petal length, and petal width) and the species of the iris.
+
+# Data Visualization
+
+Now, let's visualize the relationships between the variables using scatter plots.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Sepal Length vs Sepal Width",
+       x = "Sepal Length (cm)",
+       y = "Sepal Width (cm)")
+
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Petal Length vs Petal Width",
+       x = "Petal Length (cm)",
+       y = "Petal Width (cm)")
+```
+
+The scatter plots suggest that the species are somewhat separable based on petal and sepal measurements.
+
+# Model Creation
+
+We'll create a simple classification model using the k-Nearest Neighbors (k-NN) algorithm. First, we'll split the dataset into training and testing sets.
+
+```{r}
+set.seed(42)
+train_index <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+```
+
+Now, let's train the k-NN model.
+
+```{r}
+model <- train(Species ~ ., data = train_data, method = "knn", trControl = trainControl(method = "cv", number = 10))
+model
+```
+
+Finally, we'll evaluate the model's performance on the test dataset.
+
+```{r}
+predictions <- predict(model, test_data)
+confusionMatrix(predictions, test_data$Species)
+```
+
+The k-NN model achieves a high accuracy on the test dataset, indicating that it's able to classify the iris species reasonably well based on the four measurements provided.
+
+# Conclusion
+
+In this R Markdown document, we've demonstrated a data analysis workflow using the `iris` dataset. Through data exploration, visualization, and model creation, we've shown that the iris species can be classified using their petal and sepal measurements.
