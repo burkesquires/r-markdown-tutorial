@@ -1,0 +1,95 @@
+# RMarkdown
+
+Here are 5 exercises and their solutions that test a user's understanding of R Markdown:
+
+### Exercise 1: Basic Markdown Formatting
+
+Create an R Markdown document with the following text elements:
+
+1. A level-1 header named "Introduction".
+2. A paragraph of text.
+3. A level-2 header named "Formatting".
+4. A bulleted list with three items.
+5. A numbered list with three items.
+
+**Solution:**
+
+```markdown
+# Introduction
+
+This is a simple paragraph of text.
+
+## Formatting
+
+- Item 1
+- Item 2
+- Item 3
+
+1. Item 1
+2. Item 2
+3. Item 3
+```
+
+### Exercise 2: Text Formatting
+
+Write an R Markdown document that includes the following:
+
+1. Bold text.
+2. Italic text.
+3. A blockquote.
+
+**Solution:**
+
+```markdown
+**This is bold text.**
+
+*This is italic text.*
+
+> This is a blockquote.
+```
+
+### Exercise 3: Insert an R Code Chunk
+
+Create an R Markdown document with an R code chunk that calculates the mean of the numbers 1 to 10.
+
+**Solution:**
+
+```markdown
+```{r}
+mean(1:10)
+```
+```
+
+### Exercise 4: Display a Table
+
+Create an R Markdown document that displays the first 5 rows of the `mtcars` dataset as a table.
+
+**Solution:**
+
+```markdown
+```{r}
+library(knitr)
+kable(head(mtcars, n = 5), caption = "First 5 rows of the mtcars dataset")
+```
+```
+
+### Exercise 5: Create a Plot
+
+Create an R Markdown document that generates a bar plot of the number of cylinders in the `mtcars` dataset using `ggplot2`.
+
+**Solution:**
+
+```markdown
+```{r}
+library(ggplot2)
+
+ggplot(mtcars, aes(x = factor(cyl))) +
+  geom_bar() +
+  theme_minimal() +
+  labs(title = "Number of Cars by Cylinders",
+       x = "Number of Cylinders",
+       y = "Count")
+```
+```
+
+These exercises cover various aspects of R Markdown, including formatting, embedding R code chunks, and generating tables and plots. Completing these exercises will help users become more familiar with R Markdown's capabilities.

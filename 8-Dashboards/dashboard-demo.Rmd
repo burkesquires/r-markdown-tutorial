@@ -1,0 +1,72 @@
+---
+title: "Dashboard Demo"
+author: "R. Burke Squires"
+date: "2023-04-27"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+To create a dashboard in R Markdown, we'll use the `flexdashboard` package. First, install and load the `flexdashboard` package, if you haven't already:
+
+```R
+install.packages("flexdashboard")
+```
+
+Now, create a new R Markdown file with the following content, which demonstrates the dashboard capability using `flexdashboard`:
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(shiny)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Scatter plot of MPG vs Weight
+
+```{r}
+renderPlot({
+  ggplot(mtcars, aes(x = mpg, y = wt)) +
+    geom_point() +
+    theme_minimal() +
+    labs(title = "Scatter plot of MPG vs Weight",
+         x = "Miles per Gallon",
+         y = "Weight (1000 lbs)")
+})
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Controls
+
+```{r}
+sliderInput("mpg", "Miles per Gallon:",
+            min = min(mtcars$mpg),
+            max = max(mtcars$mpg),
+            value = c(min(mtcars$mpg), max(mtcars$mpg)))
+
+sliderInput("wt", "Weight (1000 lbs):",
+            min = min(mtcars$wt),
+            max = max(mtcars$wt),
+            value = c(min(mtcars$wt), max(mtcars$wt)))
+```
+
+### Table
+
+```{r}
+renderTable({
+  filtered_data <- mtcars[(mtcars$mpg >= input$mpg[1]) &
+                            (mtcars$mpg <= input$mpg[2]) &
+                            (mtcars$wt >= input$wt[1]) &
+                            (mtcars$wt <= input$wt[2]), ]
+  head(filtered_data)
+})
+```
+
+Save this file with the `.Rmd` extension, and then you can use the `rmarkdown::render()` function in R to generate an interactive dashboard. This example dashboard features a scatter plot, a table, and sliders to filter the data.

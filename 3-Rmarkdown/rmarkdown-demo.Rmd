@@ -1,0 +1,90 @@
+---
+title: "R Markdown Demo"
+author: "R. Burke Squires"
+date: "2023-04-27"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+# Introduction
+
+This is a simple demonstration of R Markdown's capabilities. R Markdown allows you to write text using Markdown syntax, embed R code, and produce dynamic output in various formats.
+
+# Markdown Formatting
+
+## Headers
+
+You can create headers using the `#` symbol:
+
+# H1
+## H2
+### H3
+
+## Text Formatting
+
+You can create *italic text* using a single asterisk or underscore:
+
+*Italic text* or _Italic text_
+
+You can create **bold text** using double asterisks or underscores:
+
+**Bold text** or __Bold text__
+
+## Lists
+
+You can create unordered lists using asterisks, plus signs, or hyphens:
+
+* Item 1
+* Item 2
+
+You can create ordered lists using numbers followed by periods:
+
+1. Item 1
+2. Item 2
+
+# R Code Chunks
+
+You can embed R code chunks using three backticks followed by `{r}`:
+
+```{r}
+# Here's an example R code chunk
+library(ggplot2)
+data(mtcars)
+head(mtcars)
+```
+
+# Plotting
+
+You can also include plots in your R Markdown document. Here's a scatter plot using the `mtcars` dataset:
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Scatter plot of MPG vs Weight",
+       x = "Miles per Gallon",
+       y = "Weight (1000 lbs)")
+```
+
+# Tables
+
+You can create tables using the `knitr::kable()` function:
+
+```{r}
+library(knitr)
+kable(head(mtcars), caption = "First 6 rows of the mtcars dataset")
+```
+
+# Conclusion
+
+R Markdown is a powerful tool for creating dynamic documents that combine text, code, and output. It allows for easy sharing of analysis and results with others in a wide range of formats.
+```
+
+Save this file with the `.Rmd` extension and use the `rmarkdown::render()` function in R to generate an output document.
