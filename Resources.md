@@ -26,3 +26,6 @@ A Introduction to RMarkdown
 
 *Websites*
 - [R Markdown website building tutorial](https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
+
+Alternative Publishing Systems
+- [Quarto](https://quarto.org)
