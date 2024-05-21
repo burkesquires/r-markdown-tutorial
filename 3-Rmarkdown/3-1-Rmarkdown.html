@@ -4,8 +4,8 @@
     <title>R + Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="R. Burke Squires" />
-    <meta name="date" content="2023-04-28" />
-    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
+    <meta name="date" content="2024-05-21" />
+    <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="mckpam.css" type="text/css" />
   </head>
   <body>
@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 ### R. Burke Squires
 ]
 .date[
-### April 28, 2023
+### May 21, 2024
 ]
 
 ---
@@ -216,7 +216,7 @@ or insert a chunk from the menu: `Code` -&gt; `Insert Chunk`
 Powers of two?
 
 
-```r
+``` r
 2^(0:10)
 ```
 
@@ -231,14 +231,14 @@ Powers of two?
 ````
 
 
-```r
+``` r
 cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 ```
 ````
 --
 
 
-```r
+``` r
 cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 ```
 
@@ -255,7 +255,7 @@ cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) )
 ````
 
 
-```r
+``` r
 plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
@@ -264,7 +264,7 @@ abline(h=pi, col='red')
 --
 
 
-```r
+``` r
 plot(cumsum( 4 * (-1)^(0:20) / (2*(0:20)+1) ))
 abline(h=pi, col='red')
 ```
@@ -298,7 +298,7 @@ See more here: https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 - Code results can be inserted directly into the text of a .Rmd file by enclosing the code with `r `. The file below uses `r ` twice to call colorFunc, which returns “heat.colors.”
 
 
-```r
+``` r
 colorfunc &lt;- "heat.colors"
 # colorfunc &lt;- "terrain.colors"
 ```
@@ -322,7 +322,7 @@ Base R comes with many functions for generating colors. The code below demonstra
 - To process a code chunk using an alternate language engine, replace the r at the start of your chunk declaration with the name of the language
 
 
-```bash
+``` bash
 pwd
 ```
 
@@ -342,7 +342,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html
 **Lets list some parts of the cell!**
 
 
-```python
+``` python
 parts = ['nucleus','ribosome','plasma membrane','mitochondria','endoplasmic reticulum']
 for p in parts:
     print(p)
@@ -363,7 +363,7 @@ for p in parts:
 **Lets list some types of bacteria by genus!**
 
 
-```ruby
+``` ruby
 bacs = ['Micrococcus','Staphylococcus','Bacillus','Pseudomona']
 bacs.each {|b| puts b}
 ```
