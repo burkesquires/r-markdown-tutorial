@@ -1,0 +1,147 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Basic Tables},
+  pdfauthor={R. Burke Squires},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Basic Tables}
+\author{R. Burke Squires}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsubsection{Basic Data Frame
+Printing:}\label{basic-data-frame-printing}
+
+\subsubsection{Basic Data Frame
+Printing:}\label{basic-data-frame-printing-1}
+
+\begin{verbatim}
+##   Patient Proband  WBC
+## 1 J.Jones       Y 3700
+## 2 S.Patel       N 4500
+## 3   X.Liu       Y 7000
+\end{verbatim}
+
+\subsubsection{Prettier Option Knitr's `kable'
+Function}\label{prettier-option-knitrs-kable-function}
+
+\begin{longtable}[]{@{}llr@{}}
+\caption{My Patient Table}\tabularnewline
+\toprule\noalign{}
+Patient & Proband & WBC \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Patient & Proband & WBC \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+J.Jones & Y & 3700 \\
+S.Patel & N & 4500 \\
+X.Liu & Y & 7000 \\
+\end{longtable}
+
+\subsubsection{Even Prettier Option using the `kableExtra'
+Package}\label{even-prettier-option-using-the-kableextra-package}
+
+\begin{longtable}[t]{llr}
+\caption{\label{tab:table-kable-extra}My Patient Table with Nice CSS Formatting!}\\
+\toprule
+Patient & Proband & WBC\\
+\midrule
+J.Jones & Y & 3700\\
+S.Patel & N & 4500\\
+X.Liu & Y & 7000\\
+\bottomrule
+\end{longtable}
+
+\end{document}

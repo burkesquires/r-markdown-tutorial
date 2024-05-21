@@ -4,17 +4,22 @@
     <title>R Markdown Practice</title>
     <meta charset="utf-8" />
     <meta name="author" content="R. Burke Squires" />
-    <meta name="date" content="2021-09-20" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.27/header-attrs.js"></script>
     <link rel="stylesheet" href="mckpam.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # R Markdown Practice
+]
+.author[
 ### R. Burke Squires
-### September 20, 2021
+]
+.date[
+### May 2024
+]
 
 ---
 
@@ -78,7 +83,7 @@ class: center, middle, inverse, title-slide
   -	Creating a new R Markdown document using:
     -	`File` -&gt; `New File…` -&gt; `R Markdown`
   -	Look at the `Document` menu options
-    - “HTML” -&gt; “OK”
+    - `HTML` -&gt; `OK`
   -	Knit the template to see what it should produce
   -	Erase everything in the template, and type it in for practice as shown on screen
   -	Add your text and a graph or two from the analysis notebook
@@ -96,7 +101,7 @@ class: center, middle, inverse, title-slide
 -	Creating a new R Markdown document using:
   - `File` -&gt; `New File…` -&gt; `R Markdown`
 -	Look at the `Presentation` menu options
-  -	“HTML (ioslides)” -&gt; “OK”
+  -	`HTML (ioslides)` -&gt; `OK`
 -	Knit the template to see what it should produce
 -	Erase everything in the template, and type it in for practice as shown on screen
 -	Add your text and a graph or two from the analysis notebook
@@ -110,7 +115,7 @@ class: center, middle, inverse, title-slide
 -	Creating a new R Markdown document using:
   - `File` -&gt; `New File…` -&gt; `R Markdown`
 -	Look at the `Shiny` menu options
-  -	“Shiny Document” -&gt; “OK”
+  -	`Shiny Document` -&gt; `OK`
 -	Knit the template to see what it should produce
 -	Erase everything in the template, and type it in for practice as shown on screen
   - Add your text and a graph or two from the analysis notebook
@@ -124,7 +129,7 @@ class: center, middle, inverse, title-slide
 -	Creating a new R Markdown document using:
   - `File` -&gt; `New File…` -&gt; `R Markdown`
 -	Look at the `From Template` menu options
-  - “Flex Dashboard” -&gt; “OK”
+  - `Flex Dashboard` -&gt; `OK`
 -	Knit the template to see what it should produce
 -	Erase everything in the template, and type it in for practice as shown on screen
   - Add your text and a graph or two from the analysis notebook
@@ -133,24 +138,6 @@ class: center, middle, inverse, title-slide
 
 # Q &amp; A
 
----
-
-# Dashboards
-- flexdashboard (in `other` folder)
-
----
-# `flexdashboard` Overview
-
-- Flexdashboards allow us to publish related content in R that is more organized for consumers of your work
-
-- First we set up how we want to organize the layout of our page (rows, columns, input sidebar, etc.)
-
-- Next, we use our R Markdown skills to inject the content for each of these sections
-
-- If we want to have dynamic content (served through R Shiny), we need to do the following:
-  - Capture user input(s)
-  - Send input(s) to the appropriate location to render output via the reactive() function.
-  - The function checks for any changes and updates accordingly
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -198,6 +185,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
