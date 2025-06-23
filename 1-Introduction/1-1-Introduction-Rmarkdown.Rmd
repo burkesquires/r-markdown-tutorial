@@ -2,7 +2,7 @@
 title: "An Introduction to R Markdown"
 subtitle: "Enabling Reproducible Science"
 author: "R. Burke Squires"
-date: "May 21, 2024"
+date: "June 2025"
 output:
   xaringan::moon_reader:
     css: mckpam.css

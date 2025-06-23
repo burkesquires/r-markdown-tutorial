@@ -1,7 +1,9 @@
 ---
 title: "R Notebook - Mock Analysis"
-author: Ann_Alyzer
-output: html_notebook
+author: "Ann_Alyzer"
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Gapminder Analysis
@@ -95,7 +97,6 @@ ggplot(data = gapminder, mapping = aes(x=year, y=lifeExp, by=country)) +
 ```
 
 
-
 ```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
@@ -106,7 +107,6 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + scale_x_log10()
 ```
-
 
 
 ```{r lm-fit}
@@ -142,11 +142,13 @@ ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
+
 ```{r directory-check, echo = FALSE}
 if (!dir.exists("results")) {
   dir.create("results")
 }
 ```
+
 
 ```{r save}
 lifeExp_plot <- ggplot(data = americas, mapping = aes(x = year, y = lifeExp, color=continent)) +

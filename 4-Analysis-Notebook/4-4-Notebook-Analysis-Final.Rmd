@@ -1,7 +1,9 @@
 ---
 title: "R Notebook - Mock Analysis"
-author: Ann Alyzer
-output: html_notebook
+author: "Ann Alyzer"
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Gapminder Analysis
